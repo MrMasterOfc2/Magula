@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="si">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bookings | Galewela Pradeshiya Sabha</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <style>
+      .booking-form-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+      }
+      .booking-rules {
+        background: rgba(23, 105, 224, 0.1);
+        border-radius: 24px;
+        padding: 28px;
+        border-left: 4px solid var(--green);
+      }
+      .booking-rules h3 {
+        margin-top: 0;
+      }
+      .booking-rules ul {
+        padding-left: 20px;
+      }
+      .booking-rules li {
+        margin: 12px 0;
+        color: var(--muted);
+      }
+      .booking-calendar {
+        margin-top: 48px;
+      }
+      .booking-calendar h3 {
+        margin-bottom: 20px;
+      }
+      .booking-ref-note {
+        margin-top: 24px;
+        padding: 16px;
+        background: rgba(23, 105, 224, 0.08);
+        border-radius: 16px;
+        text-align: center;
+      }
+      @media (max-width: 768px) {
+        .booking-form-container {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-glow"></div>
+    <div class="top-strip">
+      <div class="container top-strip__inner">
+        <span><i data-lucide="clock-3"></i><span data-i18n="topHours">සඳුදා - සිකුරාදා: පෙ.ව. 8.30 - ප.ව. 4.15</span></span>
+        <a href="tel:+94662281000"><i data-lucide="phone"></i>+94 66 228 1000</a>
+        <a href="mailto:info@galewela.ps.gov.lk"><i data-lucide="mail"></i>info@galewela.ps.gov.lk</a>
+      </div>
+    </div>
+
+    <header class="site-header">
+      <div class="container brand-row">
+        <a class="brand" href="index.html"><span class="brand__crest"><img class="brand__logo" src="assets/images/galewela-logo.svg" alt="Galewela Pradeshiya Sabha logo" /></span><span><strong data-i18n="siteName">ගලේවෙල ප්‍රාදේශීය සභාව</strong><small data-i18n="siteSubtitle">Official Website of Galewela Pradeshiya Sabha</small></span></a>
+        <div class="header-actions">
+          <div class="language-switcher"><button class="lang-btn is-active" type="button" data-lang="si">සිං</button><button class="lang-btn" type="button" data-lang="en">EN</button><button class="lang-btn" type="button" data-lang="ta">த</button></div>
+          <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-menu"><i data-lucide="menu"></i></button>
+        </div>
+      </div>
+      <nav class="main-nav" id="main-menu">
+        <div class="container nav-grid">
+          <a href="index.html"><i data-lucide="home"></i><span data-i18n="navHome">මුල් පිටුව</span></a>
+          <div class="nav-item">
+            <button type="button"><i data-lucide="landmark"></i><span data-i18n="navCouncil">සභාව</span><i data-lucide="chevron-down"></i></button>
+            <div class="sub-menu"><a href="about.html" data-i18n="subAbout">අප ගැන</a><a href="president.html">සභාපති පණිවිඩය</a><a href="secretary.html">ලේකම් පණිවිඩය</a><a href="vision-mission.html" data-i18n="subVision">දැක්ම සහ මෙහෙවර</a></div>
+          </div>
+          <div class="nav-item">
+            <button type="button"><i data-lucide="briefcase"></i><span data-i18n="navServices">සේවාවන්</span><i data-lucide="chevron-down"></i></button>
+            <div class="sub-menu"><a href="complaints.html" data-i18n="serviceComplaints">පැමිණිලි</a><a href="licenses.html" data-i18n="serviceLicenses">බලපත්‍ර</a><a href="payments.html" data-i18n="serviceTaxes">බදු සහ ගාස්තු</a><a href="downloads.html" data-i18n="navDownloads">බාගත කිරීම්</a></div>
+          </div>
+          <div class="nav-item">
+            <button type="button"><i data-lucide="newspaper"></i><span>Blog</span><i data-lucide="chevron-down"></i></button>
+            <div class="sub-menu"><a href="blog.html">All Posts</a><a href="blog-news.html">News</a><a href="tenders.html">Tenders</a><a href="events.html">Events</a></div>
+          </div>
+          <div class="nav-item">
+            <button type="button"><i data-lucide="bell"></i><span data-i18n="navNotices">දැනුම්දීම්</span><i data-lucide="chevron-down"></i></button>
+            <div class="sub-menu"><a href="tenders.html" data-i18n="updatesTenders">ටෙන්ඩර්</a><a href="events.html" data-i18n="updatesEvents">සිදුවීම්</a><a href="contact.html" data-i18n="navContact">සම්බන්ධ වන්න</a></div>
+          </div>
+          <a href="gallery.html"><i data-lucide="images"></i><span data-i18n="navGallery">ගැලරිය</span></a>
+          <a href="bookings.html"><i data-lucide="calendar-plus"></i><span>Bookings</span></a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero section-watch">
+        <div class="container">
+          <p class="eyebrow-light">Bookings</p>
+          <h1>Facility & Equipment Booking</h1>
+          <p>Request T.B Hall, Public Ground, JCB, Motorcator or Water Bowser for your events and projects.</p>
+        </div>
+      </section>
+
+      <section class="section section-watch">
+        <div class="container booking-form-container">
+          <!-- Booking Form - Single Date -->
+          <form class="booking-form" id="public-booking-form">
+            <p class="eyebrow">Request Form</p>
+            <h2>Submit Your Booking Request</h2>
+            
+            <label>Full Name *</label>
+            <input type="text" id="booking-name" placeholder="Your full name" required />
+            
+            <label>Phone Number *</label>
+            <input type="tel" id="booking-phone" placeholder="Contact number" required />
+            
+            <label>Email Address</label>
+            <input type="email" id="booking-email" placeholder="Email (optional)" />
+            
+            <label>NIC / ID Number *</label>
+            <input type="text" id="booking-nic" placeholder="National ID Card number" required />
+            
+            <label>Facility / Equipment *</label>
+            <select id="booking-facility" required>
+              <option value="">Select facility</option>
+              <option value="TB Hall">T.B Hall (Town Hall)</option>
+              <option value="Public Ground">Public Ground</option>
+              <option value="JCB">JCB Machine</option>
+              <option value="Motorcator">Motorcator (Water Bowser)</option>
+              <option value="Water Bowser">Water Bowser</option>
+            </select>
+            
+            <label>Event / Purpose *</label>
+            <input type="text" id="booking-purpose" placeholder="Wedding, funeral, construction, etc." required />
+            
+            <label>Booking Date *</label>
+            <input type="date" id="booking-date" required />
+            
+            <label>Additional Details</label>
+            <textarea id="booking-details" rows="3" placeholder="Any special requirements or notes"></textarea>
+            
+            <button class="btn btn-primary" type="submit"><i data-lucide="send"></i>Submit Booking Request</button>
+            <div id="booking-message" class="booking-ref-note" style="display: none;"></div>
+          </form>
+
+          <!-- Rules & Guidelines -->
+          <div class="booking-rules">
+            <i data-lucide="file-text" style="width: 36px; height: 36px; color: var(--green); margin-bottom: 16px;"></i>
+            <h3>Booking Guidelines</h3>
+            <ul>
+              <li><strong>TB Hall:</strong> Available for weddings, meetings, public events. Security deposit required.</li>
+              <li><strong>Public Ground:</strong> For sports events, community gatherings, exhibitions.</li>
+              <li><strong>JCB / Motorcator:</strong> For construction, road works, land development.</li>
+              <li><strong>Water Bowser:</strong> For water supply during drought, construction, cleaning.</li>
+              <li>Submit request at least 7 days before the event date.</li>
+              <li>Approval subject to availability and council policies.</li>
+              <li>Fees and deposits must be paid upon approval.</li>
+            </ul>
+            <div class="booking-ref-note" style="margin-top: 20px;">
+              <i data-lucide="info"></i>
+              <strong>After submission:</strong> You will receive a confirmation via WhatsApp when approved.
+            </div>
+          </div>
+        </div>
+
+        <!-- Public Calendar - Show Approved Bookings Only -->
+        <div class="container booking-calendar">
+          <h3><i data-lucide="calendar"></i> Approved Bookings Calendar</h3>
+          <div id="public-booking-calendar" class="booking-calendar-grid"></div>
+          <p class="muted" style="text-align: center; margin-top: 16px;">
+            <i data-lucide="info"></i> Green marked dates are already booked. Please select an available date.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <button class="back-to-top" type="button" aria-label="Back to top"><i data-lucide="arrow-up"></i></button>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <a class="footer-brand" href="index.html"><span class="brand__crest"><img class="brand__logo" src="assets/images/galewela-logo.svg" alt="Galewela Pradeshiya Sabha logo" /></span><strong data-i18n="siteName">ගලේවෙල ප්‍රාදේශීය සභාව</strong></a>
+          <p data-i18n="footerText">Transparent, friendly and efficient local government service for Galewela.</p>
+          <div class="social-links"><a href="#"><i data-lucide="facebook"></i></a><a href="#"><i data-lucide="youtube"></i></a><a href="#"><i data-lucide="linkedin"></i></a></div>
+        </div>
+        <div><h3 data-i18n="footerQuick">Quick Links</h3><a href="index.html">Home</a><a href="about.html">About</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a></div>
+        <div><h3 data-i18n="footerUseful">Useful Links</h3><a href="https://www.gov.lk/" target="_blank" rel="noreferrer">GOV.LK</a><a href="https://www.pclg.gov.lk/" target="_blank" rel="noreferrer">Provincial Council</a></div>
+        <div><h3 data-i18n="footerOffice">Office Hours</h3><p data-i18n="topHours">සඳුදා - සිකුරාදා: පෙ.ව. 8.30 - ප.ව. 4.15</p><a class="footer-call" href="tel:+94662281000"><i data-lucide="phone"></i>Call Office</a></div>
+      </div>
+      <div class="container footer-bottom"><span>Copyright © 2026 Galewela Pradeshiya Sabha</span><span data-i18n="footerCredit">Designed for public service access</span></div>
+    </footer>
+
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
+    <script src="assets/js/firebase-config.js"></script>
+    <script src="assets/js/app.js"></script>
+  </body>
+</html>

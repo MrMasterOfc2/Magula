@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="si">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>මහසභා වාර්තා | Galewela Pradeshiya Sabha</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <style>
+      .report-group {
+        margin-bottom: 40px;
+      }
+      .year-title {
+        font-size: 1.8rem;
+        font-weight: 800;
+        color: var(--green);
+        border-left: 5px solid var(--green);
+        padding-left: 20px;
+        margin: 30px 0 20px;
+      }
+      .report-list {
+        display: grid;
+        gap: 12px;
+      }
+      .report-item {
+        background: var(--glass);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 16px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 16px;
+        transition: 0.2s;
+      }
+      .report-item:hover {
+        transform: translateX(8px);
+        border-left-color: var(--green);
+        border-left-width: 4px;
+      }
+      .report-info {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+      .report-icon {
+        width: 48px;
+        height: 48px;
+        background: linear-gradient(135deg, var(--green), #16a870);
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .report-icon i {
+        width: 24px;
+        height: 24px;
+        color: white;
+      }
+      .report-details h3 {
+        margin: 0 0 5px;
+        font-size: 1.05rem;
+      }
+      .report-details p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.85rem;
+      }
+      .download-btn {
+        background: var(--green);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 40px;
+        cursor: pointer;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: 0.2s;
+      }
+      .download-btn:hover {
+        background: #0d5bc0;
+        transform: scale(1.02);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-glow"></div>
+    <div class="top-strip">
+      <div class="container top-strip__inner">
+        <span><i data-lucide="clock-3"></i><span>සඳුදා - සිකුරාදා: පෙ.ව. 8.30 - ප.ව. 4.15</span></span>
+        <a href="tel:+94662281000"><i data-lucide="phone"></i>+94 66 228 1000</a>
+        <a href="mailto:info@galewela.ps.gov.lk"><i data-lucide="mail"></i>info@galewela.ps.gov.lk</a>
+      </div>
+    </div>
+
+    <header class="site-header">
+      <div class="container brand-row">
+        <a class="brand" href="index.html"><span class="brand__crest"><img class="brand__logo" src="assets/images/galewela-logo.svg" alt="Galewela Pradeshiya Sabha logo" /></span><span><strong>ගලේවෙල ප්‍රාදේශීය සභාව</strong><small>Official Website of Galewela Pradeshiya Sabha</small></span></a>
+        <div class="header-actions">
+          <div class="language-switcher"><button class="lang-btn is-active" data-lang="si">සිං</button><button class="lang-btn" data-lang="en">EN</button><button class="lang-btn" data-lang="ta">த</button></div>
+          <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-menu"><i data-lucide="menu"></i></button>
+        </div>
+      </div>
+      <nav class="main-nav" id="main-menu">
+        <div class="container nav-grid">
+          <a href="index.html"><i data-lucide="home"></i><span>මුල් පිටුව</span></a>
+          <div class="nav-item"><button type="button"><i data-lucide="landmark"></i><span>අප ගැන</span><i data-lucide="chevron-down"></i></button>
+            <div class="sub-menu"><a href="about.html">හැදින්වීම</a><a href="responsibilities.html">විෂයන් වලට අදාළ රාජකාරි</a><a href="organization-structure.html">සංවිධාන ව්‍යුහය</a></div>
+          </div>
+          <div class="nav-item"><button type="button"><i data-lucide="briefcase"></i><span>සේවාවන්</span><i data-lucide="chevron-down"></i></button>
+            <div class="sub-menu"><a href="front-office-services.html">පෙරටු කාර්‍යාලයෙන් සැපයෙන සේවාවන්</a></div>
+          </div>
+          <div class="nav-item"><button type="button"><i data-lucide="download"></i><span>බාගතකිරීම්</span><i data-lucide="chevron-down"></i></button>
+            <div class="sub-menu">
+              <a href="downloads.html">අයදුම්පත්‍ර</a>
+              <a href="download1.html">මහසභා වාර්තා</a>
+              <a href="download2.html">ගැසට් නිවේදන</a>
+              <a href="download3.html">අයවැය වාර්තා</a>
+              <a href="citizen-charter.html">පුරවැසි ප්‍රඥප්තිය</a>
+              <a href="strategic-plan.html">උපාය මාර්ගික සැලැස්ම 2025</a>
+            </div>
+          </div>
+          <a href="blog-news.html"><i data-lucide="newspaper"></i><span>පුවත් හා විශේෂාංග</span></a>
+          <div class="nav-item"><button type="button"><i data-lucide="info"></i><span>තොරතුරු පනත</span><i data-lucide="chevron-down"></i></button>
+            <div class="sub-menu"><a href="info-officers.html">තොරතුරු නිලධාරින්</a><a href="https://www.rti.gov.lk" target="_blank">තොරතුරු දැනගැනීමේ වෙබ් අඩවිය</a><a href="info-forms.html">ආකෘති පත්‍ර</a><a href="info-act.html">තොරතුරු පනත</a></div>
+          </div>
+          <a href="gallery.html"><i data-lucide="images"></i><span>ගැලරිය</span></a>
+          <a href="contact.html"><i data-lucide="phone"></i><span>අපව අමතන්න</span></a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero section-watch">
+        <div class="container">
+          <p class="eyebrow-light">Council Reports</p>
+          <h1>මහසභා වාර්තා</h1>
+          <p>ගලේවෙල ප්‍රාදේශීය සභාවේ මහසභා රැස්වීම් වාර්තා</p>
+        </div>
+      </section>
+
+      <section class="section section-watch">
+        <div class="container">
+          <!-- 2025 Reports -->
+          <div class="report-group">
+            <div class="year-title">2025</div>
+            <div class="report-list">
+              <div class="report-item">
+                <div class="report-info">
+                  <div class="report-icon"><i data-lucide="calendar"></i></div>
+                  <div class="report-details">
+                    <h3>2025 අගෝස්තු මහ සභා රැස්වීමේ වාර්තාව</h3>
+                    <p>August 2025 Council Meeting Report | Published: 2025-08-30</p>
+                  </div>
+                </div>
+                <button class="download-btn" onclick="downloadReport('report_aug2025.pdf')"><i data-lucide="download"></i> PDF බාගත කරන්න</button>
+              </div>
+              <div class="report-item">
+                <div class="report-info">
+                  <div class="report-icon"><i data-lucide="calendar"></i></div>
+                  <div class="report-details">
+                    <h3>2025 ජූලි මහ සභා රැස්වීමේ වාර්තාව</h3>
+                    <p>July 2025 Council Meeting Report | Published: 2025-07-31</p>
+                  </div>
+                </div>
+                <button class="download-btn" onclick="downloadReport('report_jul2025.pdf')"><i data-lucide="download"></i> PDF බාගත කරන්න</button>
+              </div>
+              <div class="report-item">
+                <div class="report-info">
+                  <div class="report-icon"><i data-lucide="calendar"></i></div>
+                  <div class="report-details">
+                    <h3>2025 ජූනි මහ සභා රැස්වීමේ වාර්තාව</h3>
+                    <p>June 2025 Council Meeting Report | Published: 2025-06-30</p>
+                  </div>
+                </div>
+                <button class="download-btn" onclick="downloadReport('report_jun2025.pdf')"><i data-lucide="download"></i> PDF බාගත කරන්න</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2023 Reports -->
+          <div class="report-group">
+            <div class="year-title">2023</div>
+            <div class="report-list">
+              <div class="report-item">
+                <div class="report-info">
+                  <div class="report-icon"><i data-lucide="calendar"></i></div>
+                  <div class="report-details">
+                    <h3>2023 ජනවාරි මහ සභා රැස්වීමේ වාර්තාව</h3>
+                    <p>January 2023 Council Meeting Report | Published: 2023-01-31</p>
+                  </div>
+                </div>
+                <button class="download-btn" onclick="downloadReport('report_jan2023.pdf')"><i data-lucide="download"></i> PDF බාගත කරන්න</button>
+              </div>
+              <div class="report-item">
+                <div class="report-info">
+                  <div class="report-icon"><i data-lucide="calendar"></i></div>
+                  <div class="report-details">
+                    <h3>2023 පෙබරවාරි මහ සභා රැස්වීමේ වාර්තාව</h3>
+                    <p>February 2023 Council Meeting Report | Published: 2023-02-28</p>
+                  </div>
+                </div>
+                <button class="download-btn" onclick="downloadReport('report_feb2023.pdf')"><i data-lucide="download"></i> PDF බාගත කරන්න</button>
+              </div>
+              <div class="report-item">
+                <div class="report-info">
+                  <div class="report-icon"><i data-lucide="calendar"></i></div>
+                  <div class="report-details">
+                    <h3>2023 මාර්තු මහ සභා රැස්වීමේ වාර්තාව</h3>
+                    <p>March 2023 Council Meeting Report | Published: 2023-03-31</p>
+                  </div>
+                </div>
+                <button class="download-btn" onclick="downloadReport('report_mar2023.pdf')"><i data-lucide="download"></i> PDF බාගත කරන්න</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="content-card" style="margin-top: 30px; text-align: center;">
+            <i data-lucide="info" style="width: 40px; height: 40px; color: var(--green); margin-bottom: 16px;"></i>
+            <h3>වැඩි විස්තර සඳහා</h3>
+            <p>පැරණි වාර්තා සහ අනෙකුත් ලේඛන සඳහා කාර්යාල ලේඛනාගාරයට පැමිණීමට කාරුණික වන්න.</p>
+            <p><strong>දුරකථන:</strong> 066 228 1000 | <strong>විද්‍යුත් තැපෑල:</strong> info@galewela.ps.gov.lk</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <button class="back-to-top" type="button"><i data-lucide="arrow-up"></i></button>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div><a class="footer-brand" href="index.html"><span class="brand__crest"><img class="brand__logo" src="assets/images/galewela-logo.svg" alt="Galewela Pradeshiya Sabha logo" /></span><strong>ගලේවෙල ප්‍රාදේශීය සභාව</strong></a><p>Transparent, friendly and efficient local government service for Galewela.</p><div class="social-links"><a href="#"><i data-lucide="facebook"></i></a><a href="#"><i data-lucide="youtube"></i></a><a href="#"><i data-lucide="linkedin"></i></a></div></div>
+        <div><h3>Quick Links</h3><a href="index.html">Home</a><a href="about.html">About</a><a href="contact.html">Contact</a></div>
+        <div><h3>Useful Links</h3><a href="https://www.gov.lk/" target="_blank">GOV.LK</a><a href="https://www.pclg.gov.lk/" target="_blank">Provincial Council</a></div>
+        <div><h3>Office Hours</h3><p>සඳුදා - සිකුරාදා: පෙ.ව. 8.30 - ප.ව. 4.15</p><a class="footer-call" href="tel:+94662281000"><i data-lucide="phone"></i>Call Office</a></div>
+      </div>
+      <div class="container footer-bottom"><span>Copyright © 2026 Galewela Pradeshiya Sabha</span><span>Designed for public service access</span></div>
+    </footer>
+
+    <script>
+      function downloadReport(filename) {
+        alert(`PDF ගොනුව "${filename}" බාගත වේ.\n\nසටහන: මෙම PDF ගොනුව නිල ලේඛනයක් සඳහා උදාහරණයකි. සැබෑ PDF ගොනු සඳහා කාර්යාලය අමතන්න.`);
+      }
+    </script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
+    <script src="assets/js/firebase-config.js"></script>
+    <script src="assets/js/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="si">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>පෙරටු කාර්‍යාල සේවා | Galewela Pradeshiya Sabha</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <style>
+      .window-card {
+        background: var(--glass);
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        padding: 24px;
+        margin-bottom: 24px;
+        transition: transform 0.2s ease;
+      }
+      .window-card:hover {
+        transform: translateY(-4px);
+      }
+      .window-title {
+        background: linear-gradient(135deg, var(--green), #16a870);
+        color: white;
+        padding: 12px 20px;
+        border-radius: 40px;
+        display: inline-block;
+        margin-bottom: 20px;
+        font-weight: 800;
+      }
+      .service-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .service-list li {
+        padding: 12px 0;
+        border-bottom: 1px solid var(--line);
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        cursor: pointer;
+      }
+      .service-list li:last-child {
+        border-bottom: none;
+      }
+      .service-list li:hover {
+        color: var(--green);
+        padding-left: 8px;
+        transition: 0.2s;
+      }
+      .sub-info {
+        display: none;
+        margin-top: 16px;
+        padding: 16px;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 16px;
+        font-size: 0.9rem;
+      }
+      .sub-info.show {
+        display: block;
+      }
+      .sub-info p {
+        margin: 8px 0;
+      }
+      .sub-info strong {
+        color: var(--green);
+      }
+      :root[data-theme="dark"] .sub-info {
+        background: rgba(255, 255, 255, 0.08);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-glow"></div>
+    <div class="top-strip">
+      <div class="container top-strip__inner">
+        <span><i data-lucide="clock-3"></i><span data-i18n="topHours">සඳුදා - සිකුරාදා: පෙ.ව. 8.30 - ප.ව. 4.15</span></span>
+        <a href="tel:+94662281000"><i data-lucide="phone"></i>+94 66 228 1000</a>
+        <a href="mailto:info@galewela.ps.gov.lk"><i data-lucide="mail"></i>info@galewela.ps.gov.lk</a>
+      </div>
+    </div>
+
+    <header class="site-header">
+      <div class="container brand-row">
+        <a class="brand" href="index.html">
+          <span class="brand__crest"><img class="brand__logo" src="assets/images/galewela-logo.svg" alt="Galewela Pradeshiya Sabha logo" /></span>
+          <span>
+            <strong data-i18n="siteName">ගලේවෙල ප්‍රාදේශීය සභාව</strong>
+            <small data-i18n="siteSubtitle">Official Website of Galewela Pradeshiya Sabha</small>
+          </span>
+        </a>
+        <div class="header-actions">
+          <div class="language-switcher">
+            <button class="lang-btn is-active" type="button" data-lang="si">සිං</button>
+            <button class="lang-btn" type="button" data-lang="en">EN</button>
+            <button class="lang-btn" type="button" data-lang="ta">த</button>
+          </div>
+          <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-menu">
+            <i data-lucide="menu"></i>
+          </button>
+        </div>
+      </div>
+      <nav class="main-nav" id="main-menu">
+        <div class="container nav-grid">
+          <a href="index.html"><i data-lucide="home"></i><span data-i18n="navHome">මුල් පිටුව</span></a>
+          <div class="nav-item">
+            <button type="button"><i data-lucide="landmark"></i><span data-i18n="navCouncil">අප ගැන</span><i data-lucide="chevron-down"></i></button>
+            <div class="sub-menu">
+              <a href="about.html">හැදින්වීම</a>
+              <a href="responsibilities.html">විෂයන් වලට අදාළ රාජකාරි</a>
+              <a href="organization-structure.html">සංවිධාන ව්‍යුහය</a>
+            </div>
+          </div>
+          <div class="nav-item">
+            <button type="button"><i data-lucide="briefcase"></i><span data-i18n="navServices">සේවාවන්</span><i data-lucide="chevron-down"></i></button>
+            <div class="sub-menu">
+              <a href="front-office-services.html">පෙරටු කාර්‍යාලයෙන් සැපයෙන සේවාවන්</a>
+            </div>
+          </div>
+          <div class="nav-item">
+            <button type="button"><i data-lucide="download"></i><span data-i18n="navDownloads">බාගතකිරීම්</span><i data-lucide="chevron-down"></i></button>
+            <div class="sub-menu">
+              <a href="downloads.html?cat=applications">අයදුම්පත්‍ර</a>
+              <a href="downloads.html?cat=council-reports">මහසභා වාර්තා</a>
+              <a href="downloads.html?cat=gazettes">ගැසට් නිවේදන</a>
+              <a href="downloads.html?cat=citizen-charter">පුරවැසි ප්‍රඥප්තිය</a>
+              <a href="downloads.html?cat=budget">අයවැය වාර්තා</a>
+              <a href="downloads.html?cat=strategic-plan">උපාය මාර්ගික සැලැස්ම 2025</a>
+            </div>
+          </div>
+          <a href="blog-news.html"><i data-lucide="newspaper"></i><span data-i18n="navNews">පුවත් හා විශේෂාංග</span></a>
+          <div class="nav-item">
+            <button type="button"><i data-lucide="info"></i><span data-i18n="navInfoAct">තොරතුරු පනත</span><i data-lucide="chevron-down"></i></button>
+            <div class="sub-menu">
+              <a href="info-officers.html">තොරතුරු නිලධාරින්</a>
+              <a href="https://www.rti.gov.lk" target="_blank">තොරතුරු දැනගැනීමේ වෙබ් අඩවිය</a>
+              <a href="info-forms.html">ආකෘති පත්‍ර</a>
+              <a href="info-act.html">තොරතුරු පනත</a>
+            </div>
+          </div>
+          <a href="gallery.html"><i data-lucide="images"></i><span data-i18n="navGallery">ගැලරිය</span></a>
+          <a href="contact.html"><i data-lucide="phone"></i><span data-i18n="navContact">අපව අමතන්න</span></a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero section-watch">
+        <div class="container">
+          <p class="eyebrow-light">Front Office Services</p>
+          <h1>පෙරටු කාර්‍යාලයෙන් සැපයෙන සේවාවන්</h1>
+          <p>ඔබගේ පහසුව සඳහා කවුළු අංක අනුව සපයනු ලබන සියලුම සේවා</p>
+        </div>
+      </section>
+
+      <section class="section section-watch">
+        <div class="container">
+          <!-- කවුළු අංක 01 -->
+          <div class="window-card">
+            <div class="window-title">📋 කවුළු අංක 01 - තාක්ෂණික සේවා</div>
+            <ul class="service-list">
+              <li onclick="toggleSubInfo(this)">
+                <i data-lucide="ruler"></i> 01. මිනින්දෝරු සැලැස්ම අනුමත කිරීම
+                <div class="sub-info">
+                  <p><strong>අවශ්‍ය ලියකියවිලි:</strong> ඉඩම් හිමිකම් පත්‍රය, මිනින්දෝරු සැලැස්ම, අයදුම්පත</p>
+                  <p><strong>ගාස්තුව:</strong> රු. 500/- (සැලැස්මේ වටිනාකම අනුව)</p>
+                  <p><strong>කාලසීමාව:</strong> දින 07-14</p>
+                  <p><strong>වැඩි විස්තර:</strong> භෞතික සැලසුම් අංශය - 066 2281000</p>
+                </div>
+              </li>
+              <li onclick="toggleSubInfo(this)">
+                <i data-lucide="building"></i> 02. ගොඩනැගිළි සැලසුම් අනුමත කිරීම
+                <div class="sub-info">
+                  <p><strong>අවශ්‍ය ලියකියවිලි:</strong> ඉඩම් හිමිකම් පත්‍රය, ගොඩනැගිලි සැලැස්ම, ව්‍යුහාත්මක වාර්තාව, අයදුම්පත</p>
+                  <p><strong>ගාස්තුව:</strong> ගොඩනැගිලි ප්‍රමාණය අනුව රු. 1,000 - 25,000</p>
+                  <p><strong>කාලසීමාව:</strong> දින 14-30</p>
+                  <p><strong>වැඩි විස්තර:</strong> භෞතික සැලසුම් අංශය - 066 2281000</p>
+                </div>
+              </li>
+              <li onclick="toggleSubInfo(this)">
+                <i data-lucide="map-pin"></i> 03. වීථිරේඛා සහ නොපවරා ගැනීමේ සහතික නිකුත් කිරීම
+                <div class="sub-info">
+                  <p><strong>අවශ්‍ය ලියකියවිලි:</strong> ඉඩම් හිමිකම් පත්‍රය, ස්ථාන සැලැස්ම, අයදුම්පත</p>
+                  <p><strong>ගාස්තුව:</strong> රු. 250/- (එක් සහතිකයක් සඳහා)</p>
+                  <p><strong>කාලසීමාව:</strong> දින 03-05</p>
+                </div>
+              </li>
+              <li onclick="toggleSubInfo(this)">
+                <i data-lucide="check-circle"></i> 04. අනුකූලතා සහතික නිකුත් කිරීම
+                <div class="sub-info">
+                  <p><strong>අවශ්‍ය ලියකියවිලි:</strong> ඉඩම් හිමිකම් පත්‍රය, ගොඩනැගිලි අනුමැතිය, අයදුම්පත</p>
+                  <p><strong>ගාස්තුව:</strong> රු. 500/-</p>
+                  <p><strong>කාලසීමාව:</strong> දින 05-07</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- කවුළු අංක 02 -->
+          <div class="window-card">
+            <div class="window-title">🏪 කවුළු අංක 02 - වෙළඳ බලපත්‍ර හා ව්‍යාපාර බදු</div>
+            <ul class="service-list">
+              <li onclick="toggleSubInfo(this)">
+                <i data-lucide="store"></i> 01. මස් වෙළදාම හා සත්ව ගොවිපල බලපත්‍ර
+                <div class="sub-info">
+                  <p><strong>අවශ්‍ය ලියකියවිලි:</strong> ස්ථාන සාක්ෂි, සෞඛ්‍ය සහතිකය, පුද්ගලික ලේඛන</p>
+                  <p><strong>ගාස්තුව:</strong> වාර්ෂිකව රු. 2,000 - 10,000 (ව්‍යාපාර ප්‍රමාණය අනුව)</p>
+                  <p><strong>අලුත් කිරීමේ ගාස්තුව:</strong> රු. 1,500 - 7,500</p>
+                </div>
+              </li>
+              <li onclick="toggleSubInfo(this)">
+                <i data-lucide="truck"></i> 02. මස් ප්‍රවාහනය
+                <div class="sub-info">
+                  <p><strong>අවශ්‍ය ලියකියවිලි:</strong> වාහන රෙජිස්ට්‍රේෂණය, සෞඛ්‍ය සහතිකය, අයදුම්පත</p>
+                  <p><strong>ගාස්තුව:</strong> වාර්ෂිකව රු. 3,000/-</p>
+                </div>
+              </li>
+              <li onclick="toggleSubInfo(this)">
+                <i data-lucide="flag"></i> 03. දැන්වීම් පුවරු ප්‍රදර්ශණය
+                <div class="sub-info">
+                  <p><strong>අවශ්‍ය ලියකියවිලි:</strong> දැන්වීම් පුවරුවේ සැලැස්ම, ස්ථාන අවසරය, අයදුම්පත</p>
+                  <p><strong>ගාස්තුව:</strong> ප්‍රමාණය අනුව රු. 1,000 - 15,000 වාර්ෂිකව</p>
+                </div>
+              </li>
+              <li onclick="toggleSubInfo(this)">
+                <i data-lucide="bike"></i> 04. පාපැදි බලපත්‍ර
+                <div class="sub-info">
+                  <p><strong>අවශ්‍ය ලියකියවිලි:</strong> පාපැදියේ අංකය, හිමිකම් පත්‍රය, අයදුම්පත</p>
+                  <p><strong>ගාස්තුව:</strong> වාර්ෂිකව රු. 100/-</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- කවුළු අංක 03 -->
+          <div class="window-card">
+            <div class="window-title">🏠 කවුළු අංක 03 - දේපල හිමිකම් ලියාපදිංචිය</div>
+            <ul class="service-list">
+              <li onclick="toggleSubInfo(this)">
+                <i data-lucide="file-signature"></i> දේපල හිමිකම් ලියාපදිංචි කිරීම හා සංශෝධනය කිරීම
+                <div class="sub-info">
+                  <p><strong>අවශ්‍ය ලියකියවිලි:</strong> මුල් හිමිකම් පත්‍රය, උරුම පත්‍රය (අදාළ නම්), වාට්ටු නිලධාරී වාර්තාව, අයදුම්පත</p>
+                  <p><strong>ගාස්තුව:</strong> රු. 500/- (එක් ලියාපදිංචියක් සඳහා)</p>
+                  <p><strong>කාලසීමාව:</strong> දින 14-21</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- කවුළු අංක 04 -->
+          <div class="window-card">
+            <div class="window-title">📄 කවුළු අංක 04 - අයදුම්පත් බෙදාහැරීම</div>
+            <ul class="service-list">
+              <li onclick="toggleSubInfo(this)">
+                <i data-lucide="file-text"></i> වෙළඳ බලපත්‍ර අයදුම්පත
+                <div class="sub-info">
+                  <p><strong>ස්ථානය:</strong> කවුළු අංක 04</p>
+                  <p><strong>ගාස්තුව:</strong> රු. 50/- (අයදුම්පත සඳහා)</p>
+                  <p><a href="downloads.html" class="btn btn-primary" style="margin-top: 10px; display: inline-block;">අයදුම්පත බාගත කරන්න</a></p>
+                </div>
+              </li>
+              <li onclick="toggleSubInfo(this)">
+                <i data-lucide="file-text"></i> ගොඩනැගිලි අනුමැති අයදුම්පත
+                <div class="sub-info">
+                  <p><strong>ස්ථානය:</strong> කවුළු අංක 04</p>
+                  <p><strong>ගාස්තුව:</strong> රු. 100/- (අයදුම්පත සඳහා)</p>
+                  <p><a href="downloads.html" class="btn btn-primary" style="margin-top: 10px; display: inline-block;">අයදුම්පත බාගත කරන්න</a></p>
+                </div>
+              </li>
+              <li onclick="toggleSubInfo(this)">
+                <i data-lucide="file-text"></i> පැමිණිලි හා ඉල්ලීම් පත්‍රය
+                <div class="sub-info">
+                  <p><strong>ස්ථානය:</strong> කවුළු අංක 04</p>
+                  <p><strong>ගාස්තුව:</strong> නොමිලේ</p>
+                  <p><a href="downloads.html" class="btn btn-primary" style="margin-top: 10px; display: inline-block;">අයදුම්පත බාගත කරන්න</a></p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="content-card" style="margin-top: 30px; text-align: center;">
+            <i data-lucide="clock" style="width: 48px; height: 48px; color: var(--green); margin-bottom: 16px;"></i>
+            <h3>සේවා කාලය</h3>
+            <p>සඳුදා - සිකුරාදා: පෙ.ව. 8.30 - ප.ව. 4.15<br>දිවා ආහාර වේලාව: පෙ.ව. 12.30 - ප.ව. 1.30</p>
+            <p><strong>දුරකථන:</strong> 066 228 1000<br><strong>විද්‍යුත් තැපෑල:</strong> info@galewela.ps.gov.lk</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <button class="back-to-top" type="button" aria-label="Back to top"><i data-lucide="arrow-up"></i></button>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <a class="footer-brand" href="index.html"><span class="brand__crest"><img class="brand__logo" src="assets/images/galewela-logo.svg" alt="Galewela Pradeshiya Sabha logo" /></span><strong data-i18n="siteName">ගලේවෙල ප්‍රාදේශීය සභාව</strong></a>
+          <p data-i18n="footerText">Transparent, friendly and efficient local government service for Galewela.</p>
+          <div class="social-links"><a href="#"><i data-lucide="facebook"></i></a><a href="#"><i data-lucide="youtube"></i></a><a href="#"><i data-lucide="linkedin"></i></a></div>
+        </div>
+        <div><h3 data-i18n="footerQuick">Quick Links</h3><a href="complaints.html">Complaints</a><a href="payments.html">Payments</a><a href="downloads.html">Downloads</a></div>
+        <div><h3 data-i18n="footerUseful">Useful Links</h3><a href="https://www.gov.lk/" target="_blank" rel="noreferrer">GOV.LK</a></div>
+        <div><h3 data-i18n="footerOffice">Office Hours</h3><p data-i18n="topHours">සඳුදා - සිකුරාදා: පෙ.ව. 8.30 - ප.ව. 4.15</p></div>
+      </div>
+      <div class="container footer-bottom"><span>Copyright © 2026 Galewela Pradeshiya Sabha</span><span data-i18n="footerCredit">Designed for public service access</span></div>
+    </footer>
+
+    <script>
+      function toggleSubInfo(element) {
+        const subInfo = element.querySelector('.sub-info');
+        const allSubInfos = document.querySelectorAll('.sub-info');
+        allSubInfos.forEach(info => {
+          if (info !== subInfo) info.classList.remove('show');
+        });
+        subInfo.classList.toggle('show');
+      }
+    </script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
+    <script src="assets/js/firebase-config.js"></script>
+    <script src="assets/js/app.js"></script>
+  </body>
+</html>

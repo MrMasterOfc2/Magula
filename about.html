@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="si">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>About Us | Galewela Pradeshiya Sabha</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <style>
+      .vision-mission-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        margin-bottom: 48px;
+      }
+      .vision-card, .mission-card {
+        background: var(--glass);
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        padding: 32px;
+        text-align: center;
+        transition: transform 0.3s ease;
+      }
+      .vision-card:hover, .mission-card:hover {
+        transform: translateY(-5px);
+      }
+      .vision-card i, .mission-card i {
+        width: 60px;
+        height: 60px;
+        color: var(--green);
+        margin-bottom: 20px;
+      }
+      .vision-card h2, .mission-card h2 {
+        color: var(--green);
+        margin-bottom: 16px;
+      }
+      .vision-card p, .mission-card p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: var(--ink);
+      }
+      .location-image-container {
+        margin: 40px 0;
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+      }
+      .location-image-container img {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+      .location-image-container img:hover {
+        transform: scale(1.02);
+      }
+      /* Google Map Container */
+      .map-container {
+        margin: 40px 0 20px;
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        border: 1px solid var(--line);
+      }
+      .map-container iframe {
+        width: 100%;
+        height: 400px;
+        border: 0;
+        display: block;
+      }
+      .map-caption {
+        text-align: center;
+        margin-top: 12px;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+      .grama-table-container {
+        overflow-x: auto;
+        margin: 30px 0;
+      }
+      .grama-table {
+        width: 100%;
+        border-collapse: collapse;
+        background: var(--glass);
+        border-radius: 20px;
+        overflow: hidden;
+      }
+      .grama-table th,
+      .grama-table td {
+        padding: 14px 16px;
+        border: 1px solid var(--line);
+        text-align: left;
+      }
+      .grama-table th {
+        background: linear-gradient(135deg, var(--green), #16a870);
+        color: white;
+        font-weight: 800;
+      }
+      .grama-table tr:nth-child(even) {
+        background: rgba(255, 255, 255, 0.3);
+      }
+      .grama-table tr:hover {
+        background: rgba(23, 105, 224, 0.1);
+      }
+      .section-title {
+        text-align: center;
+        margin-bottom: 32px;
+      }
+      .section-title .eyebrow {
+        display: inline-block;
+        background: var(--green);
+        color: white;
+        padding: 6px 20px;
+        border-radius: 40px;
+        font-size: 0.85rem;
+      }
+      .section-title h2 {
+        margin-top: 16px;
+        font-size: 2rem;
+      }
+      :root[data-theme="dark"] .grama-table tr:nth-child(even) {
+        background: rgba(255, 255, 255, 0.08);
+      }
+      @media (max-width: 768px) {
+        .vision-mission-grid {
+          grid-template-columns: 1fr;
+        }
+        .location-image-container img,
+        .map-container iframe {
+          height: 250px;
+        }
+        .grama-table th, .grama-table td {
+          padding: 10px 12px;
+          font-size: 0.85rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-glow"></div>
+    <div class="top-strip">
+      <div class="container top-strip__inner">
+        <span><i data-lucide="clock-3"></i><span data-i18n="topHours">සඳුදා - සිකුරාදා: පෙ.ව. 8.30 - ප.ව. 4.15</span></span>
+        <a href="tel:+94662281000"><i data-lucide="phone"></i>+94 66 228 1000</a>
+        <a href="mailto:info@galewela.ps.gov.lk"><i data-lucide="mail"></i>info@galewela.ps.gov.lk</a>
+      </div>
+    </div>
+
+    <header class="site-header">
+      <div class="container brand-row">
+        <a class="brand" href="index.html">
+          <span class="brand__crest"><img class="brand__logo" src="assets/images/galewela-logo.svg" alt="Galewela Pradeshiya Sabha logo" /></span>
+          <span>
+            <strong data-i18n="siteName">ගලේවෙල ප්‍රාදේශීය සභාව</strong>
+            <small data-i18n="siteSubtitle">Official Website of Galewela Pradeshiya Sabha</small>
+          </span>
+        </a>
+        <div class="header-actions">
+          <div class="language-switcher">
+            <button class="lang-btn is-active" type="button" data-lang="si">සිං</button>
+            <button class="lang-btn" type="button" data-lang="en">EN</button>
+            <button class="lang-btn" type="button" data-lang="ta">த</button>
+          </div>
+          <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-menu">
+            <i data-lucide="menu"></i>
+          </button>
+        </div>
+      </div>
+      <nav class="main-nav" id="main-menu">
+        <div class="container nav-grid">
+          <a href="index.html"><i data-lucide="home"></i><span data-i18n="navHome">මුල් පිටුව</span></a>
+          <div class="nav-item">
+            <button type="button"><i data-lucide="landmark"></i><span data-i18n="navCouncil">සභාව</span><i data-lucide="chevron-down"></i></button>
+            <div class="sub-menu">
+              <a href="about.html" data-i18n="subAbout">අප ගැන</a>
+              <a href="president.html">සභාපති පණිවිඩය</a>
+              <a href="secretary.html">ලේකම් පණිවිඩය</a>
+              <a href="vision-mission.html" data-i18n="subVision">දැක්ම සහ මෙහෙවර</a>
+            </div>
+          </div>
+          <div class="nav-item">
+            <button type="button"><i data-lucide="briefcase"></i><span data-i18n="navServices">සේවාවන්</span><i data-lucide="chevron-down"></i></button>
+            <div class="sub-menu">
+              <a href="complaints.html" data-i18n="serviceComplaints">පැමිණිලි</a>
+              <a href="licenses.html" data-i18n="serviceLicenses">බලපත්‍ර</a>
+              <a href="payments.html" data-i18n="serviceTaxes">බදු සහ ගාස්තු</a>
+              <a href="downloads.html" data-i18n="navDownloads">බාගත කිරීම්</a>
+            </div>
+          </div>
+          <div class="nav-item">
+            <button type="button"><i data-lucide="newspaper"></i><span>Blog</span><i data-lucide="chevron-down"></i></button>
+            <div class="sub-menu">
+              <a href="blog.html">All Posts</a>
+              <a href="blog-news.html">News</a>
+              <a href="tenders.html">Tenders</a>
+              <a href="events.html">Events</a>
+            </div>
+          </div>
+          <div class="nav-item">
+            <button type="button"><i data-lucide="bell"></i><span data-i18n="navNotices">දැනුම්දීම්</span><i data-lucide="chevron-down"></i></button>
+            <div class="sub-menu">
+              <a href="tenders.html" data-i18n="updatesTenders">ටෙන්ඩර්</a>
+              <a href="events.html" data-i18n="updatesEvents">සිදුවීම්</a>
+              <a href="contact.html" data-i18n="navContact">සම්බන්ධ වන්න</a>
+            </div>
+          </div>
+          <a href="gallery.html"><i data-lucide="images"></i><span data-i18n="navGallery">ගැලරිය</span></a>
+          <a href="bookings.html"><i data-lucide="calendar-plus"></i><span>Bookings</span></a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero section-watch">
+        <div class="container">
+          <p class="eyebrow-light">About Council</p>
+          <h1>ගලේවෙල ප්‍රාදේශීය සභාව ගැන</h1>
+          <p>People-focused local government service for Galewela, Matale District.</p>
+        </div>
+      </section>
+
+      <!-- Vision & Mission Section -->
+      <section class="section section-watch">
+        <div class="container">
+          <div class="section-title">
+            <span class="eyebrow">Our Vision & Mission</span>
+            <h2>අපගේ දැක්ම සහ මෙහෙවර</h2>
+          </div>
+          <div class="vision-mission-grid">
+            <div class="vision-card">
+              <i data-lucide="eye"></i>
+              <h2>දැක්ම (Vision)</h2>
+              <p>ශ්‍රී ලංකාවේ ආදර්ශවත් පළාත් පාලන ආයතනයක් වීම.</p>
+              <p style="font-size: 0.9rem; margin-top: 10px; color: var(--muted);">To be an exemplary local government institution in Sri Lanka.</p>
+            </div>
+            <div class="mission-card">
+              <i data-lucide="target"></i>
+              <h2>මෙහෙවර (Mission)</h2>
+              <p>සීමිත සම්පත් උපරිම ප්‍රයෝජනයට ගනිමින් ජනතාවගේ සෞඛ්‍ය, මාර්ග, පොදු උපයෝගීතා හා සුභසාධන සේවා කාර්යක්ෂමව සැපයීම.</p>
+              <p style="font-size: 0.9rem; margin-top: 10px; color: var(--muted);">To efficiently provide public health, roads, utilities and welfare services while maximizing limited resources.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Location Image Section -->
+      <section class="section section-soft section-watch">
+        <div class="container">
+          <div class="section-title">
+            <span class="eyebrow">Galewela Landscape</span>
+            <h2>ගලේවෙල ප්‍රදේශය</h2>
+          </div>
+          <div class="location-image-container">
+            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=85" 
+                 alt="Galewela Landscape - Beautiful rural scenery of Galewela area" 
+                 title="ගලේවෙල ප්‍රදේශයේ ස්වභාවික සුන්දරත්වය" />
+          </div>
+          <p style="text-align: center; color: var(--muted); margin-top: 16px;">
+            <i data-lucide="map-pin"></i> ගලේවෙල, මාතලේ දිස්ත්‍රික්කය - මධ්‍යම පළාත, ශ්‍රී ලංකාව
+          </p>
+        </div>
+      </section>
+
+      <!-- About Content Section -->
+      <section class="section section-watch">
+        <div class="container page-grid">
+          <article class="content-card">
+            <p class="eyebrow">Overview</p>
+            <h2>විනිවිද, වගකීම් සහිත, නවීන පළාත් පාලනය.</h2>
+            <p>ගලේවෙල ප්‍රාදේශීය සභාව මහජන සෞඛ්‍ය, මාර්ග, පුස්තකාල, වෙළඳ බලපත්‍ර, අපද්‍රව්‍ය කළමනාකරණය සහ ප්‍රජා සේවා වැනි ප්‍රධාන සේවාවන් ජනතාවට ලබාදෙයි.</p>
+            <ul class="feature-list">
+              <li><i data-lucide="badge-check"></i>Citizen service counter and online support</li>
+              <li><i data-lucide="map"></i>Community development across Galewela area</li>
+              <li><i data-lucide="shield-check"></i>Responsible public administration</li>
+              <li><i data-lucide="users"></i>42 Grama Niladhari divisions under the council</li>
+            </ul>
+          </article>
+          <aside class="side-card">
+            <p class="eyebrow">Office</p>
+            <h3>Galewela, Matale District</h3>
+            <p>Open Monday to Friday for public services, applications, approvals and inquiries.</p>
+            <a class="btn btn-primary" href="contact.html"><i data-lucide="send"></i>Contact Office</a>
+          </aside>
+        </div>
+      </section>
+
+      <!-- Grama Niladhari Divisions Table Section -->
+      <section class="section section-soft section-watch">
+        <div class="container">
+          <div class="section-title">
+            <span class="eyebrow">Grama Niladhari Divisions</span>
+            <h2>ග්‍රාම නිලධාරී කොට්ඨාශ</h2>
+            <p>ගලේවෙල ප්‍රාදේශීය සභා බල ප්‍රදේශයට අයත් ග්‍රාම නිලධාරී වසම්</p>
+          </div>
+          <div class="grama-table-container">
+            <table class="grama-table">
+              <thead>
+                <tr>
+                  <th>අංකය</th>
+                  <th>ග්‍රාම නිලධාරී කොට්ඨාශය</th>
+                  <th>ගම්මාන / ප්‍රදේශය</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>01</td><td>Galewela</td><td>ගලේවෙල නගරය සහ ආශ්‍රිත ප්‍රදේශ</td></tr>
+                <tr><td>02</td><td>Ibbankatuwa</td><td>ඉබ්බන්කටුව පුරාවිද්‍යා ස්ථානය ආශ්‍රිත ප්‍රදේශ</td></tr>
+                <tr><td>03</td><td>Dewahuwa</td><td>දේවහුව ජලාශය ආශ්‍රිත ප්‍රදේශ</td></tr>
+                <tr><td>04</td><td>Vahakotte</td><td>වහකෝට්ටේ සහ ශාන්ත අන්තෝනි දේවස්ථාන ප්‍රදේශය</td></tr>
+                <tr><td>05</td><td>Viharahinna</td><td>විහාරහින්න පුරාවිද්‍යා ස්ථානය ආශ්‍රිත ප්‍රදේශ</td></tr>
+                <tr><td>06</td><td>Moragaspitiya</td><td>මොරගස්පිටිය ග්‍රාමය</td></tr>
+                <tr><td>07</td><td>Pallewela</td><td>පල්ලේවෙල ග්‍රාමය</td></tr>
+                <tr><td>08</td><td>Udawela</td><td>උඩවෙල ග්‍රාමය</td></tr>
+                <tr><td>09</td><td>Hathnagoda</td><td>හත්නාගොඩ ග්‍රාමය</td></tr>
+                <tr><td>10</td><td>Kalawane</td><td>කලාවැනේ ග්‍රාමය</td></tr>
+                <tr><td>11</td><td>Medawala</td><td>මැදවල ග්‍රාමය</td></tr>
+                <tr><td>12</td><td>Divulankadawala</td><td>දිවුලන්කඩවල ග්‍රාමය</td></tr>
+                <tr><td>13</td><td>Kalawewa</td><td>කලාවැව ග්‍රාමය</td></tr>
+                <tr><td>14</td><td>Thalawa</td><td>තලාව ග්‍රාමය</td></tr>
+                <tr><td>15</td><td>Ridigama</td><td>රිදිගම ග්‍රාමය</td></tr>
+                <tr><td>16</td><td>Kumbukwewa</td><td>කුඹුක්වැව ග්‍රාමය</td></tr>
+                <tr><td>17</td><td>Wehera</td><td>වෙහෙර ග්‍රාමය</td></tr>
+                <tr><td>18</td><td>Galkulama</td><td>ගල්කුලම ග්‍රාමය</td></tr>
+                <tr><td>19</td><td>Nawagattegama</td><td>නවගත්තේගම ග්‍රාමය</td></tr>
+                <tr><td>20</td><td>Habarawa</td><td>හබරාව ග්‍රාමය</td></tr>
+                <tr><td>21</td><td>Mahawela</td><td>මහවෙල ග්‍රාමය</td></tr>
+                <tr><td>22</td><td>Kurunduwela</td><td>කුරුඳුවෙල ග්‍රාමය</td></tr>
+                <tr><td>23</td><td>Poththapitiya</td><td>පොත්තපිටිය ග්‍රාමය</td></tr>
+                <tr><td>24</td><td>Dunukewela</td><td>දුනුකේවෙල ග්‍රාමය</td></tr>
+                <tr><td>25</td><td>Katiyawa</td><td>කටියාව ග්‍රාමය</td></tr>
+                <tr><td>26</td><td>Rathmalgahaewela</td><td>රත්මල්ගහඑවෙල ග්‍රාමය</td></tr>
+                <tr><td>27</td><td>Hindawa</td><td>හිඳාව ග්‍රාමය</td></tr>
+                <tr><td>28</td><td>Bulankulama</td><td>බුලන්කුලම ග්‍රාමය</td></tr>
+                <tr><td>29</td><td>Galaha</td><td>ගලහ ග්‍රාමය</td></tr>
+                <tr><td>30</td><td>Moragolla</td><td>මොරගොල්ල ග්‍රාමය</td></tr>
+                <tr><td>31</td><td>Hengamuwa</td><td>හෙංගමුව ග්‍රාමය</td></tr>
+                <tr><td>32</td><td>Pallegama</td><td>පල්ලේගම ග්‍රාමය</td></tr>
+                <tr><td>33</td><td>Udagama</td><td>උඩගම ග්‍රාමය</td></tr>
+                <tr><td>34</td><td>Medagama</td><td>මැදගම ග්‍රාමය</td></tr>
+                <tr><td>35</td><td>Elahera</td><td>ඇලහෙර ග්‍රාමය</td></tr>
+                <tr><td>36</td><td>Kudaoya</td><td>කුඩඔය ග්‍රාමය</td></tr>
+                <tr><td>37</td><td>Mahoya</td><td>මහඔය ග්‍රාමය</td></tr>
+                <tr><td>38</td><td>Bogahawewa</td><td>බෝගහවැව ග්‍රාමය</td></tr>
+                <tr><td>39</td><td>Kehelpannala</td><td>කෙහෙල්පන්නල ග්‍රාමය</td></tr>
+                <tr><td>40</td><td>Divuldeniya</td><td>දිවුල්දෙනිය ග්‍රාමය</td></tr>
+                <tr><td>41</td><td>Pihimbuwa</td><td>පිහිඹුව ග්‍රාමය</td></tr>
+                <tr><td>42</td><td>Ihala Puliyankulama</td><td>ඉහළ පුලියන්කුලම ග්‍රාමය</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="muted" style="text-align: center; margin-top: 20px;">
+            <i data-lucide="info"></i> මුළු ග්‍රාම නිලධාරී කොට්ඨාශ ගණන: 42
+          </p>
+        </div>
+      </section>
+
+      <!-- Google Map Section -->
+      <section class="section section-watch">
+        <div class="container">
+          <div class="section-title">
+            <span class="eyebrow">Location Map</span>
+            <h2>ගලේවෙල ප්‍රාදේශීය සභා කාර්යාලය</h2>
+            <p>කාර්යාලයේ පිහිටීම - පහසුවෙන් සොයාගැනීමට</p>
+          </div>
+          <div class="map-container">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126384.08485817401!2d80.46432309999999!3d7.76624645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3afc4e4dd4e1c0c5%3A0x4c8b5d8f4e8a8a8a!2sGalewela!5e0!3m2!1sen!2slk!4v1700000000000!5m2!1sen!2slk" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Galewela Pradeshiya Sabha Office Location">
+            </iframe>
+          </div>
+          <div class="map-caption">
+            <i data-lucide="map-pin"></i> ගලේවෙල ප්‍රාදේශීය සභා කාර්යාලය - ගලේවෙල නගර මධ්‍යයේ පිහිටා ඇත
+          </div>
+          <div style="text-align: center; margin-top: 20px;">
+            <a href="https://www.google.com/maps/dir//Galewela+Pradeshiya+Sabha" target="_blank" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 8px;">
+              <i data-lucide="navigation"></i> දිශාවන් ලබාගන්න (Get Directions)
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <button class="back-to-top" type="button" aria-label="Back to top">
+      <i data-lucide="arrow-up"></i>
+    </button>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <a class="footer-brand" href="index.html">
+            <span class="brand__crest"><img class="brand__logo" src="assets/images/galewela-logo.svg" alt="Galewela Pradeshiya Sabha logo" /></span>
+            <strong data-i18n="siteName">ගලේවෙල ප්‍රාදේශීය සභාව</strong>
+          </a>
+          <p data-i18n="footerText">Transparent, friendly and efficient local government service for Galewela.</p>
+          <div class="social-links">
+            <a href="#"><i data-lucide="facebook"></i></a>
+            <a href="#"><i data-lucide="youtube"></i></a>
+            <a href="#"><i data-lucide="linkedin"></i></a>
+            <a href="#"><i data-lucide="rss"></i></a>
+          </div>
+        </div>
+        <div>
+          <h3 data-i18n="footerQuick">Quick Links</h3>
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="blog.html">Blog</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div>
+          <h3 data-i18n="footerUseful">Useful Links</h3>
+          <a href="https://www.gov.lk/" target="_blank" rel="noreferrer">GOV.LK</a>
+          <a href="https://www.pclg.gov.lk/" target="_blank" rel="noreferrer">Provincial Council</a>
+          <a href="https://www.uda.gov.lk/" target="_blank" rel="noreferrer">UDA</a>
+        </div>
+        <div>
+          <h3 data-i18n="footerOffice">Office Hours</h3>
+          <p data-i18n="topHours">සඳුදා - සිකුරාදා: පෙ.ව. 8.30 - ප.ව. 4.15</p>
+          <p data-i18n="footerClosed">සති අන්ත සහ රජයේ නිවාඩු දින වසා ඇත.</p>
+          <a class="footer-call" href="tel:+94662281000"><i data-lucide="phone"></i>Call Office</a>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <span>Copyright © 2026 Galewela Pradeshiya Sabha</span>
+        <span data-i18n="footerCredit">Designed for public service access</span>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
+    <script src="assets/js/firebase-config.js"></script>
+    <script src="assets/js/app.js"></script>
+  </body>
+</html>

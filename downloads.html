@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="si">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>අයදුම්පත්‍ර | Galewela Pradeshiya Sabha</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <style>
+      .download-category {
+        margin-bottom: 48px;
+      }
+      .category-title {
+        background: linear-gradient(135deg, var(--green), #16a870);
+        color: white;
+        padding: 14px 20px;
+        border-radius: 40px;
+        display: inline-block;
+        margin-bottom: 24px;
+        font-weight: 800;
+      }
+      .download-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 18px;
+      }
+      .download-item {
+        background: var(--glass);
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        cursor: pointer;
+        text-decoration: none;
+        color: var(--ink);
+      }
+      .download-item:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow);
+      }
+      .download-icon {
+        width: 56px;
+        height: 56px;
+        background: linear-gradient(135deg, var(--green), #16a870);
+        border-radius: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .download-icon i {
+        width: 28px;
+        height: 28px;
+        color: white;
+      }
+      .download-info {
+        flex: 1;
+      }
+      .download-info h3 {
+        margin: 0 0 5px;
+        font-size: 1rem;
+      }
+      .download-info p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.85rem;
+      }
+      .download-size {
+        font-size: 0.75rem;
+        color: var(--muted);
+        margin-top: 5px;
+      }
+      .notice {
+        background: rgba(23, 105, 224, 0.1);
+        border-left: 4px solid var(--green);
+        padding: 16px 20px;
+        border-radius: 12px;
+        margin-bottom: 32px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-glow"></div>
+    <div class="top-strip">
+      <div class="container top-strip__inner">
+        <span><i data-lucide="clock-3"></i><span data-i18n="topHours">සඳුදා - සිකුරාදා: පෙ.ව. 8.30 - ප.ව. 4.15</span></span>
+        <a href="tel:+94662281000"><i data-lucide="phone"></i>+94 66 228 1000</a>
+        <a href="mailto:info@galewela.ps.gov.lk"><i data-lucide="mail"></i>info@galewela.ps.gov.lk</a>
+      </div>
+    </div>
+
+    <header class="site-header">
+      <div class="container brand-row">
+        <a class="brand" href="index.html">
+          <span class="brand__crest"><img class="brand__logo" src="assets/images/galewela-logo.svg" alt="Galewela Pradeshiya Sabha logo" /></span>
+          <span>
+            <strong data-i18n="siteName">ගලේවෙල ප්‍රාදේශීය සභාව</strong>
+            <small data-i18n="siteSubtitle">Official Website of Galewela Pradeshiya Sabha</small>
+          </span>
+        </a>
+        <div class="header-actions">
+          <div class="language-switcher">
+            <button class="lang-btn is-active" type="button" data-lang="si">සිං</button>
+            <button class="lang-btn" type="button" data-lang="en">EN</button>
+            <button class="lang-btn" type="button" data-lang="ta">த</button>
+          </div>
+          <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-menu">
+            <i data-lucide="menu"></i>
+          </button>
+        </div>
+      </div>
+      <nav class="main-nav" id="main-menu">
+        <div class="container nav-grid">
+          <a href="index.html"><i data-lucide="home"></i><span data-i18n="navHome">මුල් පිටුව</span></a>
+          <div class="nav-item">
+            <button type="button"><i data-lucide="landmark"></i><span data-i18n="navCouncil">අප ගැන</span><i data-lucide="chevron-down"></i></button>
+            <div class="sub-menu">
+              <a href="about.html">හැදින්වීම</a>
+              <a href="responsibilities.html">විෂයන් වලට අදාළ රාජකාරි</a>
+              <a href="organization-structure.html">සංවිධාන ව්‍යුහය</a>
+            </div>
+          </div>
+          <div class="nav-item">
+            <button type="button"><i data-lucide="briefcase"></i><span data-i18n="navServices">සේවාවන්</span><i data-lucide="chevron-down"></i></button>
+            <div class="sub-menu">
+              <a href="front-office-services.html">පෙරටු කාර්‍යාලයෙන් සැපයෙන සේවාවන්</a>
+            </div>
+          </div>
+          <div class="nav-item">
+            <button type="button"><i data-lucide="download"></i><span data-i18n="navDownloads">බාගතකිරීම්</span><i data-lucide="chevron-down"></i></button>
+            <div class="sub-menu">
+              <a href="downloads.html">අයදුම්පත්‍ර</a>
+              <a href="download1.html">මහසභා වාර්තා</a>
+              <a href="download2.html">ගැසට් නිවේදන</a>
+              <a href="download3.html">අයවැය වාර්තා</a>
+              <a href="citizen-charter.html">පුරවැසි ප්‍රඥප්තිය</a>
+              <a href="strategic-plan.html">උපාය මාර්ගික සැලැස්ම 2025</a>
+            </div>
+          </div>
+          <a href="blog-news.html"><i data-lucide="newspaper"></i><span data-i18n="navNews">පුවත් හා විශේෂාංග</span></a>
+          <div class="nav-item">
+            <button type="button"><i data-lucide="info"></i><span data-i18n="navInfoAct">තොරතුරු පනත</span><i data-lucide="chevron-down"></i></button>
+            <div class="sub-menu">
+              <a href="info-officers.html">තොරතුරු නිලධාරින්</a>
+              <a href="https://www.rti.gov.lk" target="_blank">තොරතුරු දැනගැනීමේ වෙබ් අඩවිය</a>
+              <a href="info-forms.html">ආකෘති පත්‍ර</a>
+              <a href="info-act.html">තොරතුරු පනත</a>
+            </div>
+          </div>
+          <a href="gallery.html"><i data-lucide="images"></i><span data-i18n="navGallery">ගැලරිය</span></a>
+          <a href="contact.html"><i data-lucide="phone"></i><span data-i18n="navContact">අපව අමතන්න</span></a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero section-watch">
+        <div class="container">
+          <p class="eyebrow-light">Downloads</p>
+          <h1>අයදුම්පත්‍ර</h1>
+          <p>අවශ්‍ය සේවාවට අදාල අයදුම්පත්‍ර බාගත කොට මුද්‍රණය කර පුරවන්න</p>
+        </div>
+      </section>
+
+      <section class="section section-watch">
+        <div class="container">
+          <div class="notice">
+            <i data-lucide="info" style="display: inline-block; margin-right: 10px;"></i>
+            <strong>උපදෙස්:</strong> අදාළ අයදුම්පත මත ක්ලික් කිරීමෙන් PDF ගොනුව බාගත වේ. ඉන්පසු එය මුද්‍රණය කර අවශ්‍ය සියලු තොරතුරු පුරවා අදාළ ගාස්තු සමඟ කාර්යාලයට ඉදිරිපත් කරන්න.
+          </div>
+
+          <!-- අයදුම්පත්‍ර -->
+          <div class="download-category">
+            <div class="category-title">📄 ගලේවෙල ප්‍රාදේශීය සභාවට අදාළ අයදුම්පත්‍ර</div>
+            <div class="download-grid">
+              <a href="#" class="download-item" onclick="downloadPDF('application1.pdf')">
+                <div class="download-icon"><i data-lucide="file-text"></i></div>
+                <div class="download-info">
+                  <h3>අනුකූලතා සහතික සඳහා අයදුම්පත්‍රය</h3>
+                  <p>Compliance Certificate Application</p>
+                  <div class="download-size">PDF, 245 KB</div>
+                </div>
+              </a>
+              <a href="#" class="download-item" onclick="downloadPDF('application2.pdf')">
+                <div class="download-icon"><i data-lucide="file-text"></i></div>
+                <div class="download-info">
+                  <h3>ඉඩම් අනුබෙදුම් ඒකාබද්ධ කිරීම සඳහා අයදුම්පත්‍රය</h3>
+                  <p>Land Subdivision & Consolidation Application</p>
+                  <div class="download-size">PDF, 312 KB</div>
+                </div>
+              </a>
+              <a href="#" class="download-item" onclick="downloadPDF('application3.pdf')">
+                <div class="download-icon"><i data-lucide="file-text"></i></div>
+                <div class="download-info">
+                  <h3>ඊ-නැණ පියස අයදුම්පත්‍රය</h3>
+                  <p>E-Nena Piyasa Application</p>
+                  <div class="download-size">PDF, 198 KB</div>
+                </div>
+              </a>
+              <a href="#" class="download-item" onclick="downloadPDF('application4.pdf')">
+                <div class="download-icon"><i data-lucide="file-text"></i></div>
+                <div class="download-info">
+                  <h3>ක්‍රීඩා පිට්ටනිය කුලියට ලබා ගැනීමේ අයදුම්පත්‍රය</h3>
+                  <p>Sports Ground Rental Application</p>
+                  <div class="download-size">PDF, 267 KB</div>
+                </div>
+              </a>
+              <a href="#" class="download-item" onclick="downloadPDF('application5.pdf')">
+                <div class="download-icon"><i data-lucide="file-text"></i></div>
+                <div class="download-info">
+                  <h3>ගොඩනැගිළි අයදුම්පත්‍රය</h3>
+                  <p>Building Application</p>
+                  <div class="download-size">PDF, 423 KB</div>
+                </div>
+              </a>
+              <a href="#" class="download-item" onclick="downloadPDF('application6.pdf')">
+                <div class="download-icon"><i data-lucide="file-text"></i></div>
+                <div class="download-info">
+                  <h3>ජල බවුසර් සේවාව ලබා ගැනීම සඳහා වූ අයදුම්පත්‍රය</h3>
+                  <p>Water Bowser Service Application</p>
+                  <div class="download-size">PDF, 234 KB</div>
+                </div>
+              </a>
+              <a href="#" class="download-item" onclick="downloadPDF('application7.pdf')">
+                <div class="download-icon"><i data-lucide="file-text"></i></div>
+                <div class="download-info">
+                  <h3>නගර ශාලාව කුලියට ලබා දීමේ අයදුම්පත්‍රය</h3>
+                  <p>Town Hall Rental Application</p>
+                  <div class="download-size">PDF, 256 KB</div>
+                </div>
+              </a>
+              <a href="#" class="download-item" onclick="downloadPDF('application8.pdf')">
+                <div class="download-icon"><i data-lucide="file-text"></i></div>
+                <div class="download-info">
+                  <h3>පරිසර බලපත් අවශ්‍ය ලිපි ලේඛන</h3>
+                  <p>Environment Permit Required Documents</p>
+                  <div class="download-size">PDF, 189 KB</div>
+                </div>
+              </a>
+              <a href="#" class="download-item" onclick="downloadPDF('application9.pdf')">
+                <div class="download-icon"><i data-lucide="file-text"></i></div>
+                <div class="download-info">
+                  <h3>පරිසර බලපත් අයදුම්පත්‍රය</h3>
+                  <p>Environment Permit Application</p>
+                  <div class="download-size">PDF, 298 KB</div>
+                </div>
+              </a>
+              <a href="#" class="download-item" onclick="downloadPDF('application10.pdf')">
+                <div class="download-icon"><i data-lucide="file-text"></i></div>
+                <div class="download-info">
+                  <h3>පාරිසරක ආරක්ෂණ බලපත්‍රය අළුත් කිරීම</h3>
+                  <p>Environment Protection Permit Renewal</p>
+                  <div class="download-size">PDF, 223 KB</div>
+                </div>
+              </a>
+              <a href="#" class="download-item" onclick="downloadPDF('application11.pdf')">
+                <div class="download-icon"><i data-lucide="file-text"></i></div>
+                <div class="download-info">
+                  <h3>පුස්තකාල සාමාජික අයදුම්පත්‍රය</h3>
+                  <p>Library Membership Application</p>
+                  <div class="download-size">PDF, 167 KB</div>
+                </div>
+              </a>
+              <a href="#" class="download-item" onclick="downloadPDF('application12.pdf')">
+                <div class="download-icon"><i data-lucide="file-text"></i></div>
+                <div class="download-info">
+                  <h3>වෙළද බලපත්‍ර අයදුම්පත්‍රය</h3>
+                  <p>Trade Licence Application</p>
+                  <div class="download-size">PDF, 345 KB</div>
+                </div>
+              </a>
+              <a href="#" class="download-item" onclick="downloadPDF('application13.pdf')">
+                <div class="download-icon"><i data-lucide="file-text"></i></div>
+                <div class="download-info">
+                  <h3>සංවර්ධන බලපත්‍ර කාලය දීර්ඝ කිරීම</h3>
+                  <p>Development Permit Extension</p>
+                  <div class="download-size">PDF, 212 KB</div>
+                </div>
+              </a>
+              <a href="#" class="download-item" onclick="downloadPDF('application14.pdf')">
+                <div class="download-icon"><i data-lucide="file-text"></i></div>
+                <div class="download-info">
+                  <h3>දේපළ අයිතිය වෙනස් කිරීම</h3>
+                  <p>Property Ownership Change</p>
+                  <div class="download-size">PDF, 278 KB</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <button class="back-to-top" type="button" aria-label="Back to top"><i data-lucide="arrow-up"></i></button>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <a class="footer-brand" href="index.html"><span class="brand__crest"><img class="brand__logo" src="assets/images/galewela-logo.svg" alt="Galewela Pradeshiya Sabha logo" /></span><strong>ගලේවෙල ප්‍රාදේශීය සභාව</strong></a>
+          <p>Transparent, friendly and efficient local government service for Galewela.</p>
+          <div class="social-links"><a href="#"><i data-lucide="facebook"></i></a><a href="#"><i data-lucide="youtube"></i></a><a href="#"><i data-lucide="linkedin"></i></a></div>
+        </div>
+        <div><h3>Quick Links</h3><a href="index.html">Home</a><a href="about.html">About</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a></div>
+        <div><h3>Useful Links</h3><a href="https://www.gov.lk/" target="_blank">GOV.LK</a><a href="https://www.pclg.gov.lk/" target="_blank">Provincial Council</a></div>
+        <div><h3>Office Hours</h3><p>සඳුදා - සිකුරාදා: පෙ.ව. 8.30 - ප.ව. 4.15</p><a class="footer-call" href="tel:+94662281000"><i data-lucide="phone"></i>Call Office</a></div>
+      </div>
+      <div class="container footer-bottom"><span>Copyright © 2026 Galewela Pradeshiya Sabha</span><span>Designed for public service access</span></div>
+    </footer>
+
+    <script>
+      function downloadPDF(filename) {
+        alert(`PDF ගොනුව "${filename}" බාගත වේ.\n\nසටහන: මෙම PDF ගොනුව නිල ලේඛනයක් සඳහා උදාහරණයකි. සැබෑ PDF ගොනු සඳහා කාර්යාලය අමතන්න.`);
+        // window.open(`/pdfs/${filename}`, '_blank');
+      }
+    </script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
+    <script src="assets/js/firebase-config.js"></script>
+    <script src="assets/js/app.js"></script>
+  </body>
+</html>

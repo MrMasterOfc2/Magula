@@ -1,0 +1,19 @@
+{
+  "name": "Galewela Pradeshiya Sabha",
+  "short_name": "Galewela PS",
+  "description": "Official digital service portal for Galewela Pradeshiya Sabha.",
+  "start_url": "index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1769e0",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "assets/images/app-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

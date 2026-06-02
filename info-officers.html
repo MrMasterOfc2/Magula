@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="si">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>තොරතුරු නිලධාරින් | Galewela Pradeshiya Sabha</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <style>
+      .info-hero {
+        background: linear-gradient(135deg, rgba(23,105,224,0.9), rgba(9,43,99,0.9));
+        border-radius: 28px;
+        padding: 40px;
+        margin-bottom: 40px;
+        color: white;
+      }
+      .procedure-steps {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 24px;
+        margin: 30px 0;
+      }
+      .step-card {
+        background: var(--glass);
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        padding: 24px;
+        text-align: center;
+        transition: transform 0.2s;
+      }
+      .step-card:hover {
+        transform: translateY(-5px);
+      }
+      .step-number {
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(135deg, var(--green), #16a870);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 16px;
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: white;
+      }
+      .officer-card {
+        background: var(--glass);
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        padding: 24px;
+        display: flex;
+        gap: 24px;
+        flex-wrap: wrap;
+        margin-bottom: 24px;
+        transition: 0.2s;
+      }
+      .officer-card:hover {
+        transform: translateX(5px);
+        box-shadow: var(--shadow);
+      }
+      .officer-image {
+        width: 140px;
+        height: 140px;
+        border-radius: 20px;
+        background: linear-gradient(135deg, var(--green), #16a870);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        overflow: hidden;
+      }
+      .officer-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .officer-details {
+        flex: 1;
+      }
+      .officer-details h3 {
+        margin: 0 0 5px;
+        color: var(--green);
+      }
+      .officer-details .position {
+        color: var(--muted);
+        font-weight: 600;
+        margin-bottom: 15px;
+      }
+      .officer-info {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-top: 15px;
+      }
+      .officer-info span {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--ink);
+      }
+      .officer-info i {
+        color: var(--green);
+      }
+      .badge-primary {
+        background: var(--green);
+        color: white;
+        padding: 5px 12px;
+        border-radius: 40px;
+        font-size: 0.75rem;
+        display: inline-block;
+        margin-bottom: 10px;
+      }
+      @media (max-width: 640px) {
+        .officer-card {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+        .officer-info {
+          justify-content: center;
+        }
+        .info-hero {
+          padding: 24px;
+        }
+        .officer-image {
+          width: 120px;
+          height: 120px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-glow"></div>
+    <div class="top-strip">
+      <div class="container top-strip__inner">
+        <span><i data-lucide="clock-3"></i><span data-i18n="topHours">සඳුදා - සිකුරාදා: පෙ.ව. 8.30 - ප.ව. 4.15</span></span>
+        <a href="tel:+94662281000"><i data-lucide="phone"></i>+94 66 228 1000</a>
+        <a href="mailto:info@galewela.ps.gov.lk"><i data-lucide="mail"></i>info@galewela.ps.gov.lk</a>
+      </div>
+    </div>
+
+    <header class="site-header">
+      <div class="container brand-row">
+        <a class="brand" href="index.html">
+          <span class="brand__crest"><img class="brand__logo" src="assets/images/galewela-logo.svg" alt="Galewela Pradeshiya Sabha logo" /></span>
+          <span>
+            <strong data-i18n="siteName">ගලේවෙල ප්‍රාදේශීය සභාව</strong>
+            <small data-i18n="siteSubtitle">Official Website of Galewela Pradeshiya Sabha</small>
+          </span>
+        </a>
+        <div class="header-actions">
+          <div class="language-switcher">
+            <button class="lang-btn is-active" type="button" data-lang="si">සිං</button>
+            <button class="lang-btn" type="button" data-lang="en">EN</button>
+            <button class="lang-btn" type="button" data-lang="ta">த</button>
+          </div>
+          <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-menu">
+            <i data-lucide="menu"></i>
+          </button>
+        </div>
+      </div>
+      <nav class="main-nav" id="main-menu">
+        <div class="container nav-grid">
+          <a href="index.html"><i data-lucide="home"></i><span data-i18n="navHome">මුල් පිටුව</span></a>
+          <div class="nav-item">
+            <button type="button"><i data-lucide="landmark"></i><span data-i18n="navCouncil">අප ගැන</span><i data-lucide="chevron-down"></i></button>
+            <div class="sub-menu">
+              <a href="about.html">හැදින්වීම</a>
+              <a href="responsibilities.html">විෂයන් වලට අදාළ රාජකාරි</a>
+              <a href="organization-structure.html">සංවිධාන ව්‍යුහය</a>
+            </div>
+          </div>
+          <div class="nav-item">
+            <button type="button"><i data-lucide="briefcase"></i><span data-i18n="navServices">සේවාවන්</span><i data-lucide="chevron-down"></i></button>
+            <div class="sub-menu">
+              <a href="front-office-services.html">පෙරටු කාර්‍යාලයෙන් සැපයෙන සේවාවන්</a>
+            </div>
+          </div>
+          <div class="nav-item">
+            <button type="button"><i data-lucide="download"></i><span data-i18n="navDownloads">බාගතකිරීම්</span><i data-lucide="chevron-down"></i></button>
+            <div class="sub-menu">
+              <a href="downloads.html">අයදුම්පත්‍ර</a>
+              <a href="download1.html">මහසභා වාර්තා</a>
+              <a href="download2.html">ගැසට් නිවේදන</a>
+              <a href="download3.html">අයවැය වාර්තා</a>
+              <a href="citizen-charter.html">පුරවැසි ප්‍රඥප්තිය</a>
+              <a href="strategic-plan.html">උපාය මාර්ගික සැලැස්ම 2025</a>
+            </div>
+          </div>
+          <a href="blog-news.html"><i data-lucide="newspaper"></i><span data-i18n="navNews">පුවත් හා විශේෂාංග</span></a>
+          <div class="nav-item">
+            <button type="button"><i data-lucide="info"></i><span data-i18n="navInfoAct">තොරතුරු පනත</span><i data-lucide="chevron-down"></i></button>
+            <div class="sub-menu">
+              <a href="info-officers.html">තොරතුරු නිලධාරින්</a>
+              <a href="https://www.rti.gov.lk" target="_blank">තොරතුරු දැනගැනීමේ වෙබ් අඩවිය</a>
+              <a href="https://www.rti.gov.lk" target="_blank">ආකෘති පත්‍ර</a>
+              <a href="https://www.rti.gov.lk" target="_blank">තොරතුරු පනත</a>
+            </div>
+          </div>
+          <a href="gallery.html"><i data-lucide="images"></i><span data-i18n="navGallery">ගැලරිය</span></a>
+          <a href="contact.html"><i data-lucide="phone"></i><span data-i18n="navContact">අපව අමතන්න</span></a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero section-watch">
+        <div class="container">
+          <p class="eyebrow-light">Right to Information</p>
+          <h1>තොරතුරු නිලධාරින්</h1>
+          <p>තොරතුරු ලබාගැනීම සඳහා අනුගමනය කළ යුතු ක්‍රියා පටිපාටිය සහ නිලධාරින් පිළිබඳ විස්තර</p>
+        </div>
+      </section>
+
+      <section class="section section-watch">
+        <div class="container">
+          <!-- Procedure Section -->
+          <div class="info-hero">
+            <i data-lucide="clipboard-list" style="width: 48px; height: 48px; margin-bottom: 16px;"></i>
+            <h2 style="color: white; margin-bottom: 16px;">තොරතුරු ලබාගැනීම සඳහා අනුගමනය කළ යුතු ක්‍රියා පටිපාටිය</h2>
+            <p style="color: rgba(255,255,255,0.9);">පහත සඳහන් තොරතුරු නිලධාරින් වෙත ඉල්ලීමක් ඉදිරිපත් කර අවශ්‍ය තොරතුරු ලබාගත හැක.</p>
+          </div>
+
+          <div class="procedure-steps">
+            <div class="step-card">
+              <div class="step-number">1</div>
+              <h3>ඉල්ලීම් පත්‍රයක් සකස් කිරීම</h3>
+              <p>අවශ්‍ය තොරතුරු පැහැදිලිව සඳහන් කරමින් ඉල්ලීම් පත්‍රයක් සකස් කරන්න.</p>
+            </div>
+            <div class="step-card">
+              <div class="step-number">2</div>
+              <h3>ඉල්ලීම ඉදිරිපත් කිරීම</h3>
+              <p>සකස් කළ ඉල්ලීම් පත්‍රය අදාළ තොරතුරු නිලධාරි වෙත ලිඛිතව හෝ විද්‍යුත් තැපෑලෙන් ඉදිරිපත් කරන්න.</p>
+            </div>
+            <div class="step-card">
+              <div class="step-number">3</div>
+              <h3>ගාස්තු ගෙවීම</h3>
+              <p>අවශ්‍ය නම් නියමිත ගාස්තුව ගෙවා රිසිට්පත ලබාගන්න.</p>
+            </div>
+            <div class="step-card">
+              <div class="step-number">4</div>
+              <h3>තොරතුරු ලබාගැනීම</h3>
+              <p>නීතියේ දක්වා ඇති කාල සීමාව තුළ අදාළ තොරතුරු ලබාගන්න.</p>
+            </div>
+          </div>
+
+          <!-- Information Giving Officer - Dynamic -->
+          <h2 style="margin: 40px 0 20px;">📋 තොරතුරු ලබාදීම සඳහා නම් කළ නිලධාරි</h2>
+          <div class="officer-card">
+            <div class="officer-image">
+              <img id="info-giving-img" src="https://via.placeholder.com/140" alt="Information Giving Officer">
+            </div>
+            <div class="officer-details">
+              <span class="badge-primary">තොරතුරු ලබාදීමේ නිලධාරි</span>
+              <h3 id="info-giving-name">කුමාරි අබේරත්න මහත්මිය</h3>
+              <div class="position" id="info-giving-designation">ලේකම් - ගලේවෙල ප්‍රාදේශීය සභාව</div>
+              <div class="officer-info">
+                <span><i data-lucide="phone"></i> <span id="info-giving-phone">066-2289219</span></span>
+                <span><i data-lucide="mail"></i> <span id="info-giving-email">galewelapradeshiyasabha@yahoo.com</span></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Information Officer - Dynamic -->
+          <h2 style="margin: 40px 0 20px;">📋 තොරතුරු නිලධාරි</h2>
+          <div class="officer-card">
+            <div class="officer-image">
+              <img id="info-officer-img" src="https://via.placeholder.com/140" alt="Information Officer">
+            </div>
+            <div class="officer-details">
+              <span class="badge-primary">තොරතුරු නිලධාරි</span>
+              <h3 id="info-officer-name">ආර්.එම්.කේ.ජී. රදනිකා කුමාරි මිය</h3>
+              <div class="position" id="info-officer-designation">ප්‍රධාන කළමනාකරණ සේවා නිලධාරි</div>
+              <div class="officer-info">
+                <span><i data-lucide="phone"></i> <span id="info-officer-phone">066-2289275</span></span>
+                <span><i data-lucide="mail"></i> <span id="info-officer-email">galewelapradeshiyasabha@yahoo.com</span></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Additional Info -->
+          <div class="content-card" style="margin-top: 40px; text-align: center;">
+            <i data-lucide="info" style="width: 48px; height: 48px; color: var(--green); margin-bottom: 16px;"></i>
+            <h3>වැඩි විස්තර සඳහා</h3>
+            <p>තොරතුරු පනත යටතේ තොරතුරු ලබාගැනීම පිළිබඳ වැඩි විස්තර සඳහා ඉහත සඳහන් නිලධාරින් අමතන්න.</p>
+            <p><strong>කාර්යාලීය කාලය:</strong> සඳුදා - සිකුරාදා: පෙ.ව. 8.30 - ප.ව. 4.15</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <button class="back-to-top" type="button" aria-label="Back to top"><i data-lucide="arrow-up"></i></button>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <a class="footer-brand" href="index.html"><span class="brand__crest"><img class="brand__logo" src="assets/images/galewela-logo.svg" alt="Galewela Pradeshiya Sabha logo" /></span><strong data-i18n="siteName">ගලේවෙල ප්‍රාදේශීය සභාව</strong></a>
+          <p data-i18n="footerText">Transparent, friendly and efficient local government service for Galewela.</p>
+          <div class="social-links"><a href="#"><i data-lucide="facebook"></i></a><a href="#"><i data-lucide="youtube"></i></a><a href="#"><i data-lucide="linkedin"></i></a></div>
+        </div>
+        <div><h3 data-i18n="footerQuick">Quick Links</h3><a href="index.html">Home</a><a href="about.html">About</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a></div>
+        <div><h3 data-i18n="footerUseful">Useful Links</h3><a href="https://www.gov.lk/" target="_blank">GOV.LK</a><a href="https://www.pclg.gov.lk/" target="_blank">Provincial Council</a></div>
+        <div><h3 data-i18n="footerOffice">Office Hours</h3><p data-i18n="topHours">සඳුදා - සිකුරාදා: පෙ.ව. 8.30 - ප.ව. 4.15</p><a class="footer-call" href="tel:+94662281000"><i data-lucide="phone"></i>Call Office</a></div>
+      </div>
+      <div class="container footer-bottom"><span>Copyright © 2026 Galewela Pradeshiya Sabha</span><span data-i18n="footerCredit">Designed for public service access</span></div>
+    </footer>
+
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
+    <script src="assets/js/firebase-config.js"></script>
+    <script src="assets/js/app.js"></script>
+  </body>
+</html>

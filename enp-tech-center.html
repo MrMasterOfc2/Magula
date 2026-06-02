@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="si">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Enp Tech Center | Galewela Pradeshiya Sabha</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <div class="page-glow"></div>
+
+    <header class="site-header">
+      <div class="container brand-row">
+        <a class="brand" href="index.html">
+          <span class="brand__crest"><img class="brand__logo" src="assets/images/galewela-logo.svg" alt="Galewela Pradeshiya Sabha logo" /></span>
+          <span>
+            <strong data-i18n="siteName">Galewela Pradeshiya Sabha</strong>
+            <small>Education Services</small>
+          </span>
+        </a>
+        <div class="header-actions">
+          <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-menu">
+            <i data-lucide="menu"></i>
+          </button>
+        </div>
+      </div>
+
+      <nav class="main-nav" id="main-menu">
+        <div class="container nav-grid">
+          <a href="index.html"><i data-lucide="home"></i><span>Home</span></a>
+          <a href="public-library.html"><i data-lucide="book-open"></i><span>Public Library</span></a>
+          <a href="contact.html"><i data-lucide="phone"></i><span>Contact</span></a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero section-watch">
+        <div class="container">
+          <p class="eyebrow-light">Education</p>
+          <h1>Enp Tech Center</h1>
+          <p>Digital learning, technology training and practical computer literacy support for the community.</p>
+        </div>
+      </section>
+
+      <section class="section section-watch">
+        <div class="container page-grid">
+          <article class="content-card">
+            <p class="eyebrow">Tech Learning</p>
+            <h2>Digital skills for students and citizens</h2>
+            <p>
+              The Enp Tech Center page highlights computer training, online service guidance, youth skill development
+              and public digital access programmes.
+            </p>
+            <ul class="feature-list">
+              <li><i data-lucide="monitor"></i>Computer literacy support</li>
+              <li><i data-lucide="graduation-cap"></i>Youth technology programmes</li>
+              <li><i data-lucide="wifi"></i>Online public service guidance</li>
+            </ul>
+          </article>
+
+          <aside class="side-card">
+            <h3>Programme Details</h3>
+            <p>Training schedules and registrations can be published through the admin blog and events sections.</p>
+            <a class="btn btn-primary" href="events.html">
+              <i data-lucide="calendar-days"></i>
+              <span>View Events</span>
+            </a>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
+    <script src="assets/js/firebase-config.js"></script>
+    <script src="assets/js/app.js"></script>
+  </body>
+</html>

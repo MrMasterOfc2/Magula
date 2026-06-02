@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="si">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>විෂයන් වලට අදාළ රාජකාරි | Galewela Pradeshiya Sabha</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <style>
+      .responsibilities-table {
+        width: 100%;
+        overflow-x: auto;
+        margin: 24px 0;
+      }
+      .responsibilities-table table {
+        width: 100%;
+        border-collapse: collapse;
+        background: var(--glass);
+        border-radius: 22px;
+        overflow: hidden;
+      }
+      .responsibilities-table th,
+      .responsibilities-table td {
+        padding: 14px 16px;
+        border: 1px solid var(--line);
+        text-align: left;
+        vertical-align: top;
+      }
+      .responsibilities-table th {
+        background: linear-gradient(135deg, var(--green), #16a870);
+        color: white;
+        font-weight: 800;
+      }
+      .responsibilities-table tr:nth-child(even) {
+        background: rgba(255, 255, 255, 0.3);
+      }
+      .dept-section {
+        margin-bottom: 48px;
+      }
+      .dept-title {
+        background: linear-gradient(135deg, var(--green), #16a870);
+        color: white;
+        padding: 16px 24px;
+        border-radius: 18px;
+        margin: 32px 0 20px;
+        font-size: 1.4rem;
+      }
+      :root[data-theme="dark"] .responsibilities-table tr:nth-child(even) {
+        background: rgba(255, 255, 255, 0.08);
+      }
+      .last-updated {
+        text-align: right;
+        font-size: 0.8rem;
+        color: var(--muted);
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-glow"></div>
+    <div class="top-strip">
+      <div class="container top-strip__inner">
+        <span><i data-lucide="clock-3"></i><span data-i18n="topHours">සඳුදා - සිකුරාදා: පෙ.ව. 8.30 - ප.ව. 4.15</span></span>
+        <a href="tel:+94662281000"><i data-lucide="phone"></i>+94 66 228 1000</a>
+        <a href="mailto:info@galewela.ps.gov.lk"><i data-lucide="mail"></i>info@galewela.ps.gov.lk</a>
+      </div>
+    </div>
+
+    <header class="site-header">
+      <div class="container brand-row">
+        <a class="brand" href="index.html">
+          <span class="brand__crest"><img class="brand__logo" src="assets/images/galewela-logo.svg" alt="Galewela Pradeshiya Sabha logo" /></span>
+          <span>
+            <strong data-i18n="siteName">ගලේවෙල ප්‍රාදේශීය සභාව</strong>
+            <small data-i18n="siteSubtitle">Official Website of Galewela Pradeshiya Sabha</small>
+          </span>
+        </a>
+        <div class="header-actions">
+          <div class="language-switcher">
+            <button class="lang-btn is-active" type="button" data-lang="si">සිං</button>
+            <button class="lang-btn" type="button" data-lang="en">EN</button>
+            <button class="lang-btn" type="button" data-lang="ta">த</button>
+          </div>
+          <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-menu">
+            <i data-lucide="menu"></i>
+          </button>
+        </div>
+      </div>
+      <nav class="main-nav" id="main-menu">
+        <div class="container nav-grid">
+          <a href="index.html"><i data-lucide="home"></i><span data-i18n="navHome">මුල් පිටුව</span></a>
+          <div class="nav-item">
+            <button type="button"><i data-lucide="landmark"></i><span data-i18n="navCouncil">අප ගැන</span><i data-lucide="chevron-down"></i></button>
+            <div class="sub-menu">
+              <a href="about.html">හැදින්වීම</a>
+              <a href="responsibilities.html">විෂයන් වලට අදාළ රාජකාරි</a>
+              <a href="organization-structure.html">සංවිධාන ව්‍යුහය</a>
+            </div>
+          </div>
+          <div class="nav-item">
+            <button type="button"><i data-lucide="briefcase"></i><span data-i18n="navServices">සේවාවන්</span><i data-lucide="chevron-down"></i></button>
+            <div class="sub-menu">
+              <a href="front-office-services.html">පෙරටු කාර්‍යාලයෙන් සැපයෙන සේවාවන්</a>
+            </div>
+          </div>
+          <div class="nav-item">
+            <button type="button"><i data-lucide="download"></i><span data-i18n="navDownloads">බාගතකිරීම්</span><i data-lucide="chevron-down"></i></button>
+            <div class="sub-menu">
+              <a href="downloads.html">අයදුම්පත්‍ර</a>
+              <a href="download1.html">මහසභා වාර්තා</a>
+              <a href="download2.html">ගැසට් නිවේදන</a>
+              <a href="download3.html">අයවැය වාර්තා</a>
+              <a href="citizen-charter.html">පුරවැසි ප්‍රඥප්තිය</a>
+              <a href="strategic-plan.html">උපාය මාර්ගික සැලැස්ම 2025</a>
+            </div>
+          </div>
+          <a href="blog-news.html"><i data-lucide="newspaper"></i><span data-i18n="navNews">පුවත් හා විශේෂාංග</span></a>
+          <div class="nav-item">
+            <button type="button"><i data-lucide="info"></i><span data-i18n="navInfoAct">තොරතුරු පනත</span><i data-lucide="chevron-down"></i></button>
+            <div class="sub-menu">
+              <a href="info-officers.html">තොරතුරු නිලධාරින්</a>
+              <a href="https://www.rti.gov.lk" target="_blank">තොරතුරු දැනගැනීමේ වෙබ් අඩවිය</a>
+              <a href="https://www.rti.gov.lk" target="_blank">ආකෘති පත්‍ර</a>
+              <a href="https://www.rti.gov.lk" target="_blank">තොරතුරු පනත</a>
+            </div>
+          </div>
+          <a href="gallery.html"><i data-lucide="images"></i><span data-i18n="navGallery">ගැලරිය</span></a>
+          <a href="contact.html"><i data-lucide="phone"></i><span data-i18n="navContact">අපව අමතන්න</span></a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero section-watch">
+        <div class="container">
+          <p class="eyebrow-light">Responsibilities</p>
+          <h1>විෂයන් වලට අදාළ රාජකාරි</h1>
+          <p>ආයතනික වගකීම්, කාර්යයන් සහ විෂය භාර නිලධාරීන් පිළිබඳ විස්තර</p>
+        </div>
+      </section>
+
+      <section class="section section-watch">
+        <div class="container">
+          <!-- Dynamic Responsibilities will be loaded here -->
+          <div id="responsibilities-content">
+            <p class="muted">Loading responsibilities...</p>
+          </div>
+          <div class="last-updated" id="resp-last-updated"></div>
+        </div>
+      </section>
+    </main>
+
+    <button class="back-to-top" type="button" aria-label="Back to top"><i data-lucide="arrow-up"></i></button>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <a class="footer-brand" href="index.html"><span class="brand__crest"><img class="brand__logo" src="assets/images/galewela-logo.svg" alt="Galewela Pradeshiya Sabha logo" /></span><strong data-i18n="siteName">ගලේවෙල ප්‍රාදේශීය සභාව</strong></a>
+          <p data-i18n="footerText">Transparent, friendly and efficient local government service for Galewela.</p>
+          <div class="social-links"><a href="#"><i data-lucide="facebook"></i></a><a href="#"><i data-lucide="youtube"></i></a><a href="#"><i data-lucide="linkedin"></i></a><a href="#"><i data-lucide="rss"></i></a></div>
+        </div>
+        <div><h3 data-i18n="footerQuick">Quick Links</h3><a href="index.html">Home</a><a href="about.html">About</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a></div>
+        <div><h3 data-i18n="footerUseful">Useful Links</h3><a href="https://www.gov.lk/" target="_blank" rel="noreferrer">GOV.LK</a><a href="https://www.pclg.gov.lk/" target="_blank" rel="noreferrer">Provincial Council</a><a href="https://www.uda.gov.lk/" target="_blank" rel="noreferrer">UDA</a></div>
+        <div><h3 data-i18n="footerOffice">Office Hours</h3><p data-i18n="topHours">සඳුදා - සිකුරාදා: පෙ.ව. 8.30 - ප.ව. 4.15</p><a class="footer-call" href="tel:+94662281000"><i data-lucide="phone"></i>Call Office</a></div>
+      </div>
+      <div class="container footer-bottom"><span>Copyright © 2026 Galewela Pradeshiya Sabha</span><span data-i18n="footerCredit">Designed for public service access</span></div>
+    </footer>
+
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
+    <script src="assets/js/firebase-config.js"></script>
+    <script src="assets/js/app.js"></script>
+  </body>
+</html>

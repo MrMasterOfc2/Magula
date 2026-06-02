@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="si">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gallery | Galewela Pradeshiya Sabha</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <style>
+      .gallery-section {
+        margin-bottom: 60px;
+      }
+      .gallery-title {
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+        color: var(--green);
+      }
+      .gallery-location {
+        font-size: 1rem;
+        color: var(--muted);
+        margin-bottom: 20px;
+        line-height: 1.6;
+      }
+      .slideshow-container {
+        position: relative;
+        background: var(--glass);
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        margin-bottom: 20px;
+      }
+      .slideshow-slides {
+        position: relative;
+        height: 450px;
+        overflow: hidden;
+      }
+      .slide {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity 0.8s ease-in-out;
+        object-fit: cover;
+      }
+      .slide.active {
+        opacity: 1;
+      }
+      .slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .slide-caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+        color: white;
+        padding: 20px;
+        text-align: center;
+      }
+      .prev, .next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(0,0,0,0.5);
+        color: white;
+        border: none;
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.3s;
+        z-index: 10;
+      }
+      .prev:hover, .next:hover {
+        background: rgba(0,0,0,0.8);
+        transform: translateY(-50%) scale(1.05);
+      }
+      .prev {
+        left: 15px;
+      }
+      .next {
+        right: 15px;
+      }
+      .dots-container {
+        text-align: center;
+        padding: 15px;
+        background: var(--glass);
+        border-radius: 0 0 24px 24px;
+      }
+      .dot {
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        margin: 0 5px;
+        background: var(--muted);
+        border-radius: 50%;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      .dot.active {
+        background: var(--green);
+        width: 30px;
+        border-radius: 10px;
+      }
+      .thumbnails {
+        display: flex;
+        gap: 10px;
+        margin-top: 15px;
+        overflow-x: auto;
+        padding: 10px 0;
+      }
+      .thumbnail {
+        width: 80px;
+        height: 60px;
+        object-fit: cover;
+        border-radius: 10px;
+        cursor: pointer;
+        opacity: 0.6;
+        transition: 0.3s;
+        border: 2px solid transparent;
+      }
+      .thumbnail:hover, .thumbnail.active {
+        opacity: 1;
+        border-color: var(--green);
+        transform: scale(1.05);
+      }
+      @media (max-width: 768px) {
+        .slideshow-slides {
+          height: 300px;
+        }
+        .prev, .next {
+          width: 35px;
+          height: 35px;
+          font-size: 1rem;
+        }
+        .gallery-title {
+          font-size: 1.4rem;
+        }
+      }
+      @media (max-width: 480px) {
+        .slideshow-slides {
+          height: 250px;
+        }
+        .thumbnail {
+          width: 60px;
+          height: 45px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-glow"></div>
+    <div class="top-strip">
+      <div class="container top-strip__inner">
+        <span><i data-lucide="clock-3"></i><span data-i18n="topHours">සඳුදා - සිකුරාදා: පෙ.ව. 8.30 - ප.ව. 4.15</span></span>
+        <a href="tel:+94662281000"><i data-lucide="phone"></i>+94 66 228 1000</a>
+        <a href="mailto:info@galewela.ps.gov.lk"><i data-lucide="mail"></i>info@galewela.ps.gov.lk</a>
+      </div>
+    </div>
+
+    <header class="site-header">
+      <div class="container brand-row">
+        <a class="brand" href="index.html">
+          <span class="brand__crest"><img class="brand__logo" src="assets/images/galewela-logo.svg" alt="Galewela Pradeshiya Sabha logo" /></span>
+          <span>
+            <strong data-i18n="siteName">ගලේවෙල ප්‍රාදේශීය සභාව</strong>
+            <small data-i18n="siteSubtitle">Official Website of Galewela Pradeshiya Sabha</small>
+          </span>
+        </a>
+        <div class="header-actions">
+          <div class="language-switcher">
+            <button class="lang-btn is-active" type="button" data-lang="si">සිං</button>
+            <button class="lang-btn" type="button" data-lang="en">EN</button>
+            <button class="lang-btn" type="button" data-lang="ta">த</button>
+          </div>
+          <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-menu">
+            <i data-lucide="menu"></i>
+          </button>
+        </div>
+      </div>
+      <nav class="main-nav" id="main-menu">
+        <div class="container nav-grid">
+          <a href="index.html"><i data-lucide="home"></i><span data-i18n="navHome">මුල් පිටුව</span></a>
+          <div class="nav-item">
+            <button type="button"><i data-lucide="landmark"></i><span data-i18n="navCouncil">අප ගැන</span><i data-lucide="chevron-down"></i></button>
+            <div class="sub-menu">
+              <a href="about.html">හැදින්වීම</a>
+              <a href="responsibilities.html">විෂයන් වලට අදාළ රාජකාරි</a>
+              <a href="organization-structure.html">සංවිධාන ව්‍යුහය</a>
+            </div>
+          </div>
+          <div class="nav-item">
+            <button type="button"><i data-lucide="briefcase"></i><span data-i18n="navServices">සේවාවන්</span><i data-lucide="chevron-down"></i></button>
+            <div class="sub-menu">
+              <a href="front-office-services.html">පෙරටු කාර්‍යාලයෙන් සැපයෙන සේවාවන්</a>
+            </div>
+          </div>
+          <div class="nav-item">
+            <button type="button"><i data-lucide="download"></i><span data-i18n="navDownloads">බාගතකිරීම්</span><i data-lucide="chevron-down"></i></button>
+            <div class="sub-menu">
+              <a href="downloads.html">අයදුම්පත්‍ර</a>
+              <a href="download1.html">මහසභා වාර්තා</a>
+              <a href="download2.html">ගැසට් නිවේදන</a>
+              <a href="download3.html">අයවැය වාර්තා</a>
+              <a href="citizen-charter.html">පුරවැසි ප්‍රඥප්තිය</a>
+              <a href="strategic-plan.html">උපාය මාර්ගික සැලැස්ම 2025</a>
+            </div>
+          </div>
+          <a href="blog-news.html"><i data-lucide="newspaper"></i><span data-i18n="navNews">පුවත් හා විශේෂාංග</span></a>
+          <div class="nav-item">
+            <button type="button"><i data-lucide="info"></i><span data-i18n="navInfoAct">තොරතුරු පනත</span><i data-lucide="chevron-down"></i></button>
+            <div class="sub-menu">
+              <a href="info-officers.html">තොරතුරු නිලධාරින්</a>
+              <a href="info-website.html">තොරතුරු දැනගැනීමේ වෙබ් අඩවිය</a>
+              <a href="info-forms.html">ආකෘති පත්‍ර</a>
+              <a href="info-act.html">තොරතුරු පනත</a>
+            </div>
+          </div>
+          <a href="gallery.html"><i data-lucide="images"></i><span data-i18n="navGallery">ගැලරිය</span></a>
+          <a href="contact.html"><i data-lucide="phone"></i><span data-i18n="navContact">අපව අමතන්න</span></a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero section-watch">
+        <div class="container">
+          <p class="eyebrow-light">Gallery</p>
+          <h1>ඡායාරූප පෙළ</h1>
+          <p>ගලේවෙල ප්‍රදේශයේ ඓතිහාසික හා සංචාරක ස්ථාන</p>
+        </div>
+      </section>
+
+      <section class="section section-watch">
+        <div class="container">
+          
+          <!-- Location 1: Ibbankatuwa -->
+          <div class="gallery-section">
+            <h2 class="gallery-title">🌄 ඉබ්බන්කටුව පූර්ව ඓතිහාසික මහා ශිලා සුසාන භූමිය</h2>
+            <div class="gallery-location">
+              මධ්‍යම පළාතේ, මාතලේ දිස්ත්‍රික්කයේ, ගලේවෙල ප්‍රාදේශීය සභා බලප්‍රදේශයේ පිහිටි ඉබ්බන්කටුව කලා ඔයේ පෝෂක ශාඛාවක් වූ දඹුළු ඔයේ වම් ඉවුරේ පිහිටා ඇත. හෙක්ටයාර් 13 ක ප්‍රදේශයක් පුරා ව්‍යාප්තව පවතින මෙම සුසාන භූමිය, මහා ශිලා සම්ප්‍රධායේ ශිලා මංජුසා සුසාන වර්ගයට අයත් වූ සුසාන ගර්භවලින් සමන්විතය.
+            </div>
+            <div id="slideshow-ibb" class="slideshow-container">
+              <div class="slideshow-slides">
+                <div class="slide active"><img src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=1200&q=85" alt="Ibbankatuwa Archaeological Site - Main View"></div>
+                <div class="slide"><img src="https://images.unsplash.com/photo-1581092335871-4b9c5bd0f5a8?auto=format&fit=crop&w=1200&q=85" alt="Ibbankatuwa - Ancient Burial Grounds"></div>
+                <div class="slide"><img src="https://images.unsplash.com/photo-1581092160607-ee6e2c4e8d4a?auto=format&fit=crop&w=1200&q=85" alt="Ibbankatuwa - Stone Cists"></div>
+                <div class="slide"><img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=85" alt="Ibbankatuwa - Surrounding Landscape"></div>
+                <div class="slide"><img src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=1200&q=85" alt="Ibbankatuwa - Historical Significance"></div>
+              </div>
+              <button class="prev" onclick="changeSlide('ibb', -1)">&#10094;</button>
+              <button class="next" onclick="changeSlide('ibb', 1)">&#10095;</button>
+              <div class="slide-caption">
+                <span id="caption-ibb">ඉබ්බන්කටුව පූර්ව ඓතිහාසික මහා ශිලා සුසාන භූමිය</span>
+              </div>
+            </div>
+            <div class="dots-container" id="dots-ibb"></div>
+            <div class="thumbnails" id="thumbs-ibb"></div>
+          </div>
+
+          <!-- Location 2: Dewahuwa Reservoir -->
+          <div class="gallery-section">
+            <h2 class="gallery-title">💧 දේවහුව ජලාශය</h2>
+            <div class="gallery-location">
+              විහාරමහා දේවිය සහ දුටුගැමුණු කුමාරයා ඓතිහාසික විජිතපුර සටනට කඳවුරු බදිමින් සේනාව සංවිධානය කරමින් සිටි අවධියේ විජිතපුර දමිළ ජනතාවගේ කුඹුරුවලට ජලය යාමට ඉඩනොදී විහාර මහා දේවියගේ උපදෙස් පරිදි කදුගැට දෙකක් යා කරමින් සේනාව ලවා වැව බඳිමින් සිටියදී දෙවියන් විසින් දුටුගැමුණු කුමාරයා හට පිරිත් නූලක් දැමූ බවත්, එබැවින් දේව-හුය යන නම පසුකාලයේදී දේවහුව ලෙස පරිවර්ථනය වූ බවත් ජනප්‍රවාදයේ සඳහන් වේ.
+            </div>
+            <div id="slideshow-dew" class="slideshow-container">
+              <div class="slideshow-slides">
+                <div class="slide active"><img src="https://images.unsplash.com/photo-1439853949127-fa6471eba5a3?auto=format&fit=crop&w=1200&q=85" alt="Dewahuwa Reservoir - Aerial View"></div>
+                <div class="slide"><img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=85" alt="Dewahuwa Reservoir - Water Body"></div>
+                <div class="slide"><img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1200&q=85" alt="Dewahuwa Reservoir - Sunset View"></div>
+                <div class="slide"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=85" alt="Dewahuwa Reservoir - Surroundings"></div>
+                <div class="slide"><img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1200&q=85" alt="Dewahuwa Reservoir - Scenic Beauty"></div>
+              </div>
+              <button class="prev" onclick="changeSlide('dew', -1)">&#10094;</button>
+              <button class="next" onclick="changeSlide('dew', 1)">&#10095;</button>
+              <div class="slide-caption">
+                <span id="caption-dew">දේවහුව ජලාශය</span>
+              </div>
+            </div>
+            <div class="dots-container" id="dots-dew"></div>
+            <div class="thumbnails" id="thumbs-dew"></div>
+          </div>
+
+          <!-- Location 3: St. Anthony's Church -->
+          <div class="gallery-section">
+            <h2 class="gallery-title">⛪ ශාන්ත අන්තෝනි දේවස්ථානය, වහකෝට්ටේ (වාසල බැඳි කොටුවේ පල්ලිය)</h2>
+            <div class="gallery-location">
+              කතෝලික බැතිමතුන්ගේ අතිශය භක්ත්‍යාදරයට ලක්වන පංචතූර්ය නාදය සහිතව පෙරහැර පවත්වන එකම කතෝලික පල්ලිය වන මෙහි වහලය රොම්නෙක්ස් ගෘහ නිර්මාණ ශිල්පයට අනුව යටලී භාවිත නොකර නිර්මාණය කිරීම විශේෂත්වයකි. අවුරුදු 400 කට වඩා පැරණි මෙම දේවස්ථානය අන්තෝනි මුනිදුන් වෙනුවෙන් සෑදු පැරණිම දේවස්ථානය ලෙස සැලකේ.
+            </div>
+            <div id="slideshow-church" class="slideshow-container">
+              <div class="slideshow-slides">
+                <div class="slide active"><img src="https://images.unsplash.com/photo-1438032005730-c779502df39b?auto=format&fit=crop&w=1200&q=85" alt="St. Anthony's Church - Main Building"></div>
+                <div class="slide"><img src="https://images.unsplash.com/photo-1465447142348-e9952c393450?auto=format&fit=crop&w=1200&q=85" alt="St. Anthony's Church - Interior"></div>
+                <div class="slide"><img src="https://images.unsplash.com/photo-1554810028-8a2c2c3e8b2c?auto=format&fit=crop&w=1200&q=85" alt="St. Anthony's Church - Altar"></div>
+                <div class="slide"><img src="https://images.unsplash.com/photo-1520438357614-7a1074b2dc0b?auto=format&fit=crop&w=1200&q=85" alt="St. Anthony's Church - Statue"></div>
+                <div class="slide"><img src="https://images.unsplash.com/photo-1502657877623-f66bf489d236?auto=format&fit=crop&w=1200&q=85" alt="St. Anthony's Church - Architecture"></div>
+              </div>
+              <button class="prev" onclick="changeSlide('church', -1)">&#10094;</button>
+              <button class="next" onclick="changeSlide('church', 1)">&#10095;</button>
+              <div class="slide-caption">
+                <span id="caption-church">ශාන්ත අන්තෝනි දේවස්ථානය, වහකෝට්ටේ</span>
+              </div>
+            </div>
+            <div class="dots-container" id="dots-church"></div>
+            <div class="thumbnails" id="thumbs-church"></div>
+          </div>
+
+          <!-- Location 4: Viharahinna -->
+          <div class="gallery-section">
+            <h2 class="gallery-title">🏛️ විහාරහින්න පුරාවිද්‍යා ස්ථානය</h2>
+            <div class="gallery-location">
+              දුටුගැමුණු රජු දවස දක්වා දිවෙන ඉතිහාසයකින් ආරම්භ වන මෙම ස්ථානය එළාර දුටුගැමුණු යුද්ධය පැවති සමයේ විහාර මහා දේවිය සඟවා තැබූ ස්ථානයක් වන අතර දෙස් විදෙස් සංචාරකයින් යාපහුව නැරඹීමෙන් පසුව සීගිරිය නැරඹීම සඳහා පිබිදුනුගම හරහා වැටී ඇති කෙටි මාර්ගය ඔස්සේ ගමන් කිරීමේදී විහාරහින්න පුරාවිද්‍යාත්මක භූමියද ඇස ගැටේ.
+            </div>
+            <div id="slideshow-vih" class="slideshow-container">
+              <div class="slideshow-slides">
+                <div class="slide active"><img src="https://images.unsplash.com/photo-1581092160607-ee6e2c4e8d4a?auto=format&fit=crop&w=1200&q=85" alt="Viharahinna - Ancient Ruins"></div>
+                <div class="slide"><img src="https://images.unsplash.com/photo-1581092335871-4b9c5bd0f5a8?auto=format&fit=crop&w=1200&q=85" alt="Viharahinna - Archaeological Site"></div>
+                <div class="slide"><img src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=1200&q=85" alt="Viharahinna - Historical Remains"></div>
+                <div class="slide"><img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?auto=format&fit=crop&w=1200&q=85" alt="Viharahinna - Temple Structure"></div>
+                <div class="slide"><img src="https://images.unsplash.com/photo-1532960401447-7dd05bef20b0?auto=format&fit=crop&w=1200&q=85" alt="Viharahinna - Surroundings"></div>
+              </div>
+              <button class="prev" onclick="changeSlide('vih', -1)">&#10094;</button>
+              <button class="next" onclick="changeSlide('vih', 1)">&#10095;</button>
+              <div class="slide-caption">
+                <span id="caption-vih">විහාරහින්න පුරාවිද්‍යා ස්ථානය</span>
+              </div>
+            </div>
+            <div class="dots-container" id="dots-vih"></div>
+            <div class="thumbnails" id="thumbs-vih"></div>
+          </div>
+
+        </div>
+      </section>
+    </main>
+
+    <button class="back-to-top" type="button" aria-label="Back to top"><i data-lucide="arrow-up"></i></button>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <a class="footer-brand" href="index.html"><span class="brand__crest"><img class="brand__logo" src="assets/images/galewela-logo.svg" alt="Galewela Pradeshiya Sabha logo" /></span><strong>ගලේවෙල ප්‍රාදේශීය සභාව</strong></a>
+          <p>Transparent, friendly and efficient local government service for Galewela.</p>
+          <div class="social-links"><a href="#"><i data-lucide="facebook"></i></a><a href="#"><i data-lucide="youtube"></i></a><a href="#"><i data-lucide="linkedin"></i></a></div>
+        </div>
+        <div><h3>Quick Links</h3><a href="index.html">Home</a><a href="about.html">About</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a></div>
+        <div><h3>Useful Links</h3><a href="https://www.gov.lk/" target="_blank">GOV.LK</a><a href="https://www.pclg.gov.lk/" target="_blank">Provincial Council</a></div>
+        <div><h3>Office Hours</h3><p>සඳුදා - සිකුරාදා: පෙ.ව. 8.30 - ප.ව. 4.15</p><a class="footer-call" href="tel:+94662281000"><i data-lucide="phone"></i>Call Office</a></div>
+      </div>
+      <div class="container footer-bottom"><span>Copyright © 2026 Galewela Pradeshiya Sabha</span><span>Designed for public service access</span></div>
+    </footer>
+
+    <script>
+      // Slideshow data for each location
+      const slideshows = {
+        ibb: { current: 0, total: 5, captions: [
+          "ඉබ්බන්කටුව පූර්ව ඓතිහාසික මහා ශිලා සුසාන භූමිය - ප්‍රධාන දර්ශනය",
+          "ඉබ්බන්කටුව - පුරාණ සුසාන භූමිය",
+          "ඉබ්බන්කටුව - ශිලා මංජුසා",
+          "ඉබ්බන්කටුව - අවට භූ දර්ශනය",
+          "ඉබ්බන්කටුව - ඓතිහාසික වැදගත්කම"
+        ] },
+        dew: { current: 0, total: 5, captions: [
+          "දේවහුව ජලාශය - ගුවන් දර්ශනය",
+          "දේවහුව ජලාශය - ජල ධාරිතාව",
+          "දේවහුව ජලාශය - හිරු බැස යෑම",
+          "දේවහුව ජලාශය - වටපිටාව",
+          "දේවහුව ජලාශය - ස්වභාවික සුන්දරත්වය"
+        ] },
+        church: { current: 0, total: 5, captions: [
+          "ශාන්ත අන්තෝනි දේවස්ථානය - ප්‍රධාන ගොඩනැගිල්ල",
+          "ශාන්ත අන්තෝනි දේවස්ථානය - අභ්‍යන්තරය",
+          "ශාන්ත අන්තෝනි දේවස්ථානය - පූජාසනය",
+          "ශාන්ත අන්තෝනි දේවස්ථානය - ප්‍රතිමාව",
+          "ශාන්ත අන්තෝනි දේවස්ථානය - වාස්තු විද්‍යාව"
+        ] },
+        vih: { current: 0, total: 5, captions: [
+          "විහාරහින්න පුරාවිද්‍යා ස්ථානය - පුරාණ නටබුන්",
+          "විහාරහින්න - පුරාවිද්‍යා භූමිය",
+          "විහාරහින්න - ඓතිහාසික නටබුන්",
+          "විහාරහින්න - විහාර ව්‍යුහය",
+          "විහාරහින්න - වටපිටාව"
+        ] }
+      };
+
+      // Initialize all slideshows
+      function initSlideshow(id) {
+        createDots(id);
+        createThumbnails(id);
+        updateSlide(id);
+      }
+
+      function createDots(id) {
+        const container = document.getElementById(`dots-${id}`);
+        if (!container) return;
+        container.innerHTML = '';
+        for (let i = 0; i < slideshows[id].total; i++) {
+          const dot = document.createElement('span');
+          dot.className = 'dot' + (i === slideshows[id].current ? ' active' : '');
+          dot.onclick = () => goToSlide(id, i);
+          container.appendChild(dot);
+        }
+      }
+
+      function createThumbnails(id) {
+        const container = document.getElementById(`thumbs-${id}`);
+        if (!container) return;
+        container.innerHTML = '';
+        const slidesContainer = document.querySelector(`#slideshow-${id} .slideshow-slides`);
+        const images = slidesContainer.querySelectorAll('.slide img');
+        images.forEach((img, idx) => {
+          const thumb = document.createElement('img');
+          thumb.src = img.src;
+          thumb.className = 'thumbnail' + (idx === slideshows[id].current ? ' active' : '');
+          thumb.onclick = () => goToSlide(id, idx);
+          container.appendChild(thumb);
+        });
+      }
+
+      function goToSlide(id, index) {
+        if (index < 0) index = 0;
+        if (index >= slideshows[id].total) index = slideshows[id].total - 1;
+        slideshows[id].current = index;
+        updateSlide(id);
+      }
+
+      function changeSlide(id, direction) {
+        slideshows[id].current += direction;
+        if (slideshows[id].current < 0) slideshows[id].current = slideshows[id].total - 1;
+        if (slideshows[id].current >= slideshows[id].total) slideshows[id].current = 0;
+        updateSlide(id);
+      }
+
+      function updateSlide(id) {
+        const slidesContainer = document.querySelector(`#slideshow-${id} .slideshow-slides`);
+        const slides = slidesContainer.querySelectorAll('.slide');
+        const dots = document.querySelectorAll(`#dots-${id} .dot`);
+        const thumbs = document.querySelectorAll(`#thumbs-${id} .thumbnail`);
+        const caption = document.getElementById(`caption-${id}`);
+        
+        slides.forEach((slide, idx) => {
+          slide.classList.toggle('active', idx === slideshows[id].current);
+        });
+        
+        dots.forEach((dot, idx) => {
+          dot.classList.toggle('active', idx === slideshows[id].current);
+        });
+        
+        thumbs.forEach((thumb, idx) => {
+          thumb.classList.toggle('active', idx === slideshows[id].current);
+        });
+        
+        if (caption && slideshows[id].captions[slideshows[id].current]) {
+          caption.textContent = slideshows[id].captions[slideshows[id].current];
+        }
+      }
+
+      // Initialize all slideshows
+      initSlideshow('ibb');
+      initSlideshow('dew');
+      initSlideshow('church');
+      initSlideshow('vih');
+
+      // Auto slideshow (optional - changes every 5 seconds)
+      let autoTimers = {};
+      function startAutoSlideshow(id) {
+        if (autoTimers[id]) clearInterval(autoTimers[id]);
+        autoTimers[id] = setInterval(() => {
+          changeSlide(id, 1);
+        }, 5000);
+      }
+      
+      // Start all auto slideshows
+      startAutoSlideshow('ibb');
+      startAutoSlideshow('dew');
+      startAutoSlideshow('church');
+      startAutoSlideshow('vih');
+
+      // Stop auto on hover and restart on leave
+      document.querySelectorAll('.slideshow-container').forEach(container => {
+        const id = container.id.replace('slideshow-', '');
+        container.addEventListener('mouseenter', () => {
+          if (autoTimers[id]) clearInterval(autoTimers[id]);
+        });
+        container.addEventListener('mouseleave', () => {
+          startAutoSlideshow(id);
+        });
+      });
+    </script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
+    <script src="assets/js/firebase-config.js"></script>
+    <script src="assets/js/app.js"></script>
+  </body>
+</html>
+
+
+
+
+
+
+
+

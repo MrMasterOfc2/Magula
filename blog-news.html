@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="si">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>News | Galewela Pradeshiya Sabha</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <style>
+      .news-filter-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin-bottom: 32px;
+      }
+      .news-category-filter {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .filter-chip {
+        padding: 8px 20px;
+        border-radius: 40px;
+        background: var(--glass);
+        border: 1px solid var(--line);
+        cursor: pointer;
+        font-weight: 600;
+        transition: all 0.2s ease;
+      }
+      .filter-chip.active {
+        background: var(--green);
+        color: white;
+        border-color: var(--green);
+      }
+      .filter-chip:hover {
+        transform: translateY(-2px);
+      }
+      .news-count {
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+      .news-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 24px;
+      }
+      .news-card {
+        background: var(--glass);
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .news-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow);
+      }
+      .news-card-image {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+      }
+      .news-card-content {
+        padding: 20px;
+      }
+      .news-category-badge {
+        display: inline-block;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 0.7rem;
+        font-weight: 700;
+        margin-bottom: 12px;
+      }
+      .news-category-badge.news { background: #1769e0; color: white; }
+      .news-category-badge.tenders { background: #d49a25; color: white; }
+      .news-category-badge.events { background: #16a870; color: white; }
+      .news-card-title {
+        font-size: 1.25rem;
+        margin: 0 0 10px;
+        line-height: 1.4;
+      }
+      .news-card-date {
+        font-size: 0.8rem;
+        color: var(--muted);
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .news-card-excerpt {
+        color: var(--muted);
+        line-height: 1.5;
+        margin-bottom: 16px;
+      }
+      .read-more-btn {
+        color: var(--green);
+        font-weight: 700;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        transition: gap 0.2s ease;
+      }
+      .read-more-btn:hover {
+        gap: 10px;
+      }
+      .empty-news {
+        text-align: center;
+        padding: 60px 20px;
+        background: var(--glass);
+        border-radius: 24px;
+      }
+      .empty-news i {
+        width: 64px;
+        height: 64px;
+        color: var(--muted);
+        margin-bottom: 16px;
+      }
+      @media (max-width: 768px) {
+        .news-grid {
+          grid-template-columns: 1fr;
+        }
+        .news-filter-bar {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-glow"></div>
+    <div class="top-strip">
+      <div class="container top-strip__inner">
+        <span><i data-lucide="clock-3"></i><span data-i18n="topHours">සඳුදා - සිකුරාදා: පෙ.ව. 8.30 - ප.ව. 4.15</span></span>
+        <a href="tel:+94662281000"><i data-lucide="phone"></i>+94 66 228 1000</a>
+        <a href="mailto:info@galewela.ps.gov.lk"><i data-lucide="mail"></i>info@galewela.ps.gov.lk</a>
+      </div>
+    </div>
+
+    <header class="site-header">
+      <div class="container brand-row">
+        <a class="brand" href="index.html">
+          <span class="brand__crest"><img class="brand__logo" src="assets/images/galewela-logo.svg" alt="Galewela Pradeshiya Sabha logo" /></span>
+          <span>
+            <strong data-i18n="siteName">ගලේවෙල ප්‍රාදේශීය සභාව</strong>
+            <small data-i18n="siteSubtitle">Official Website of Galewela Pradeshiya Sabha</small>
+          </span>
+        </a>
+        <div class="header-actions">
+          <div class="language-switcher">
+            <button class="lang-btn is-active" type="button" data-lang="si">සිං</button>
+            <button class="lang-btn" type="button" data-lang="en">EN</button>
+            <button class="lang-btn" type="button" data-lang="ta">த</button>
+          </div>
+          <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-menu">
+            <i data-lucide="menu"></i>
+          </button>
+        </div>
+      </div>
+      <nav class="main-nav" id="main-menu">
+        <div class="container nav-grid">
+          <a href="index.html"><i data-lucide="home"></i><span data-i18n="navHome">මුල් පිටුව</span></a>
+          <div class="nav-item">
+            <button type="button"><i data-lucide="landmark"></i><span data-i18n="navCouncil">සභාව</span><i data-lucide="chevron-down"></i></button>
+            <div class="sub-menu">
+              <a href="about.html" data-i18n="subAbout">අප ගැන</a>
+              <a href="president.html">සභාපති පණිවිඩය</a>
+              <a href="secretary.html">ලේකම් පණිවිඩය</a>
+              <a href="vision-mission.html" data-i18n="subVision">දැක්ම සහ මෙහෙවර</a>
+            </div>
+          </div>
+          <div class="nav-item">
+            <button type="button"><i data-lucide="briefcase"></i><span data-i18n="navServices">සේවාවන්</span><i data-lucide="chevron-down"></i></button>
+            <div class="sub-menu">
+              <a href="complaints.html" data-i18n="serviceComplaints">පැමිණිලි</a>
+              <a href="licenses.html" data-i18n="serviceLicenses">බලපත්‍ර</a>
+              <a href="payments.html" data-i18n="serviceTaxes">බදු සහ ගාස්තු</a>
+              <a href="downloads.html" data-i18n="navDownloads">බාගත කිරීම්</a>
+            </div>
+          </div>
+          <div class="nav-item">
+            <button type="button"><i data-lucide="newspaper"></i><span>Blog</span><i data-lucide="chevron-down"></i></button>
+            <div class="sub-menu">
+              <a href="blog.html">All Posts</a>
+              <a href="blog-news.html">News</a>
+              <a href="tenders.html">Tenders</a>
+              <a href="events.html">Events</a>
+            </div>
+          </div>
+          <div class="nav-item">
+            <button type="button"><i data-lucide="bell"></i><span data-i18n="navNotices">දැනුම්දීම්</span><i data-lucide="chevron-down"></i></button>
+            <div class="sub-menu">
+              <a href="tenders.html" data-i18n="updatesTenders">ටෙන්ඩර්</a>
+              <a href="events.html" data-i18n="updatesEvents">සිදුවීම්</a>
+              <a href="contact.html" data-i18n="navContact">සම්බන්ධ වන්න</a>
+            </div>
+          </div>
+          <a href="gallery.html"><i data-lucide="images"></i><span data-i18n="navGallery">ගැලරිය</span></a>
+          <a href="bookings.html"><i data-lucide="calendar-plus"></i><span>Bookings</span></a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero section-watch">
+        <div class="container">
+          <p class="eyebrow-light">News & Updates</p>
+          <h1>නවතම පුවත්</h1>
+          <p>Council announcements, tenders and public information updates from Galewela Pradeshiya Sabha.</p>
+        </div>
+      </section>
+
+      <section class="section section-watch">
+        <div class="container">
+          <!-- Filter Bar -->
+          <div class="news-filter-bar">
+            <div class="news-category-filter" id="news-category-filter">
+              <button class="filter-chip active" data-filter="all">All Posts</button>
+              <button class="filter-chip" data-filter="news">News</button>
+              <button class="filter-chip" data-filter="tenders">Tenders</button>
+              <button class="filter-chip" data-filter="events">Events</button>
+            </div>
+            <div class="news-count" id="news-count">
+              <i data-lucide="newspaper"></i> <span id="post-total-count">0</span> Posts
+            </div>
+          </div>
+
+          <!-- Dynamic News Grid -->
+          <div id="news-grid-container" class="news-grid">
+            <div class="empty-news">
+              <i data-lucide="newspaper"></i>
+              <h3>No posts yet</h3>
+              <p>Check back later for updates from Galewela Pradeshiya Sabha.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <button class="back-to-top" type="button" aria-label="Back to top">
+      <i data-lucide="arrow-up"></i>
+    </button>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <a class="footer-brand" href="index.html">
+            <span class="brand__crest"><img class="brand__logo" src="assets/images/galewela-logo.svg" alt="Galewela Pradeshiya Sabha logo" /></span>
+            <strong data-i18n="siteName">ගලේවෙල ප්‍රාදේශීය සභාව</strong>
+          </a>
+          <p data-i18n="footerText">Transparent, friendly and efficient local government service for Galewela.</p>
+          <div class="social-links">
+            <a href="#"><i data-lucide="facebook"></i></a>
+            <a href="#"><i data-lucide="youtube"></i></a>
+            <a href="#"><i data-lucide="linkedin"></i></a>
+            <a href="#"><i data-lucide="rss"></i></a>
+          </div>
+        </div>
+        <div>
+          <h3 data-i18n="footerQuick">Quick Links</h3>
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="blog.html">Blog</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div>
+          <h3 data-i18n="footerUseful">Useful Links</h3>
+          <a href="https://www.gov.lk/" target="_blank" rel="noreferrer">GOV.LK</a>
+          <a href="https://www.pclg.gov.lk/" target="_blank" rel="noreferrer">Provincial Council</a>
+          <a href="https://www.uda.gov.lk/" target="_blank" rel="noreferrer">UDA</a>
+        </div>
+        <div>
+          <h3 data-i18n="footerOffice">Office Hours</h3>
+          <p data-i18n="topHours">සඳුදා - සිකුරාදා: පෙ.ව. 8.30 - ප.ව. 4.15</p>
+          <p data-i18n="footerClosed">සති අන්ත සහ රජයේ නිවාඩු දින වසා ඇත.</p>
+          <a class="footer-call" href="tel:+94662281000"><i data-lucide="phone"></i>Call Office</a>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <span>Copyright © 2026 Galewela Pradeshiya Sabha</span>
+        <span data-i18n="footerCredit">Designed for public service access</span>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
+    <script src="assets/js/firebase-config.js"></script>
+    <script src="assets/js/app.js"></script>
+  </body>
+</html>
