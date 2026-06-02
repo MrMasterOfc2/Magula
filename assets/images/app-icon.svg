@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Galewela PS app icon</title>
+  <desc id="desc">Blue square app icon with Galewela PS lettering.</desc>
+  <rect width="512" height="512" rx="96" fill="#1769e0"/>
+  <circle cx="256" cy="188" r="92" fill="#ffffff" opacity="0.96"/>
+  <path fill="#1769e0" d="M256 116c40 0 72 32 72 72s-32 72-72 72-72-32-72-72 32-72 72-72zm-38 112h43c27 0 46-17 46-42 0-24-19-41-46-41h-59v110h16v-27zm0-14v-55h42c18 0 30 11 30 27 0 17-12 28-30 28h-42z"/>
+  <text x="256" y="360" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="62" font-weight="800">GPS</text>
+  <text x="256" y="410" text-anchor="middle" fill="#dcecff" font-family="Arial, sans-serif" font-size="30" font-weight="700">Galewela PS</text>
+</svg>
